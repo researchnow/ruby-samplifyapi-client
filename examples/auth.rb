@@ -11,7 +11,7 @@ payload.password = ENV['SAMPLIFY_API_PASSWORD']
 begin
   result = api_instance.auth_password(payload, {})
   
-  cmd = "export API_ACCESS_TOKEN=#{result.access_token}"
+  cmd = "export SAMPLIFY_API_ACCESS_TOKEN=#{result.access_token}"
   p cmd
 rescue SamplifyAPIClient::ApiError => e
   puts "Exception when calling AuthApi->auth_password: #{e}"
