@@ -5,7 +5,7 @@ require 'samplify_api_client'
 SamplifyAPIClient.configure do |config|
   config.api_key['Authorization'] = ENV['SAMPLIFY_API_ACCESS_TOKEN']
   config.api_key_prefix['Authorization'] = 'Bearer'
-  config.debugging = true
+  config.debugging = false
 end
 
 
