@@ -58,6 +58,8 @@ module SamplifyAPIClient
     # A title for the line item
     attr_accessor :title
 
+    attr_accessor :category
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -97,7 +99,8 @@ module SamplifyAPIClient
         :'survey_url' => :'surveyURL',
         :'survey_url_params' => :'surveyURLParams',
         :'targets' => :'targets',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'category' => :'category'
       }
     end
 
@@ -118,7 +121,8 @@ module SamplifyAPIClient
         :'survey_url' => :'String',
         :'survey_url_params' => :'Array<URLParam>',
         :'targets' => :'Array<Target>',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'category' => :'CategoryData',
       }
     end
 
@@ -195,6 +199,10 @@ module SamplifyAPIClient
       if attributes.has_key?(:'title')
         self.title = attributes[:'title']
       end
+
+      if attributes.has_key?(:'category')
+        self.category = attributes[:'category']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -229,6 +237,10 @@ module SamplifyAPIClient
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
+      if @category.nil?
+        invalid_properties.push('invalid value for "category", category cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -244,6 +256,7 @@ module SamplifyAPIClient
       return false if @language_iso_code.nil?
       return false if @length_of_interview.nil?
       return false if @title.nil?
+      return false if @category.nil?
       true
     end
 
@@ -276,7 +289,8 @@ module SamplifyAPIClient
           survey_url == o.survey_url &&
           survey_url_params == o.survey_url_params &&
           targets == o.targets &&
-          title == o.title
+          title == o.title &&
+          category == o.category
     end
 
     # @see the `==` method
@@ -288,7 +302,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_iso_code, days_in_field, delivery_type, ext_line_item_id, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, survey_test_url, survey_test_url_params, survey_url, survey_url_params, targets, title].hash
+      [country_iso_code, days_in_field, delivery_type, ext_line_item_id, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, survey_test_url, survey_test_url_params, survey_url, survey_url_params, targets, title, category].hash
     end
 
     # Builds the object from hash
