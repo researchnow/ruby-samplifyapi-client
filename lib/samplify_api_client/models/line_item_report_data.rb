@@ -317,7 +317,7 @@ module SamplifyAPIClient
       return false if @remaining_completes.nil?
       return false if @screenouts.nil?
       return false if @state.nil?
-      state_validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'LAUNCHED', 'PAUSED', 'CLOSED'])
+      state_validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED'])
       return false unless state_validator.valid?(@state)
       return false if @state_reason.nil?
       return false if @title.nil?
@@ -327,9 +327,9 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'LAUNCHED', 'PAUSED', 'CLOSED'])
+      validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED'])
       unless validator.valid?(state)
-        fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
+        fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end
       @state = state
     end

@@ -217,7 +217,7 @@ module SamplifyAPIClient
     def state=(state)
       validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED', 'INVOICED'])
       unless validator.valid?(state)
-        fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
+        fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end
       @state = state
     end
