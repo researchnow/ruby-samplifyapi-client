@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.0
 =end
 
 module SamplifyAPIClient
-  VERSION = '1.0.2'
+  VERSION = '1.0.3'
 end

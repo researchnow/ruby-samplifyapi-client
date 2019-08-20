@@ -17,7 +17,7 @@ module SamplifyAPIClient
     # A unique identifier for your Line Item
     attr_accessor :ext_line_item_id
 
-    # The current state of the line item: PROVISIONED, AWAITING_APPROVAL, LAUNCHED, PAUSED, CLOSED, INVOICED
+    # The current state of the line item: 'PROVISIONED', 'LAUNCHED', 'PAUSED', 'CLOSED', 'COMPLETED', 'AWAITING_APPROVAL', 'INVOICED', 'QA_APPROVED', 'REJECTED', 'CANCELLED', 'AWAITING_APPROVAL_PAUSED', 'AWAITING_CLIENT_APPROVAL', 'REJECTED_PAUSED'
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.

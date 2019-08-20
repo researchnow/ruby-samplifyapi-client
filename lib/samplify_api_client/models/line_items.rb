@@ -15,6 +15,10 @@ require 'date'
 module SamplifyAPIClient
   # LineItems media type (default view)
   class LineItems
+
+    STATUSES = ['PROVISIONED', 'LAUNCHED', 'PAUSED', 'CLOSED', 'COMPLETED', 'AWAITING_APPROVAL', 'INVOICED',
+                'QA_APPROVED', 'REJECTED', 'CANCELLED', 'AWAITING_APPROVAL_PAUSED', 'AWAITING_CLIENT_APPROVAL', 'REJECTED_PAUSED']
+
     attr_accessor :data
 
     attr_accessor :meta

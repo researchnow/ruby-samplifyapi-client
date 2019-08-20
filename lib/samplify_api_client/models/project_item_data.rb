@@ -167,7 +167,7 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED'])
+      validator = EnumAttributeValidator.new('String', LineItems::STATUSES)
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end

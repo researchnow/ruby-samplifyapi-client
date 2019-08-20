@@ -29,7 +29,7 @@ module SamplifyAPIClient
     # Timestamp of when the line item launched on RN SSI panelists
     attr_accessor :launched_at
 
-    # The current state of the line item: PROVISIONED, AWAITING_APPROVAL, LAUNCHED, PAUSED, CLOSED, INVOICED
+    # The current state of the line item: 'PROVISIONED', 'LAUNCHED', 'PAUSED', 'CLOSED', 'COMPLETED', 'AWAITING_APPROVAL', 'INVOICED', 'QA_APPROVED', 'REJECTED', 'CANCELLED', 'AWAITING_APPROVAL_PAUSED', 'AWAITING_CLIENT_APPROVAL', 'REJECTED_PAUSED'
     attr_accessor :state
 
     # Timestamp of when the line item last changed its state
@@ -203,7 +203,7 @@ module SamplifyAPIClient
       return false if @language_iso_code.nil?
       return false if @launched_at.nil?
       return false if @state.nil?
-      state_validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED', 'INVOICED'])
+      state_validator = EnumAttributeValidator.new('String', LineItems::STATUSES)
       return false unless state_validator.valid?(@state)
       return false if @state_last_updated_at.nil?
       return false if @state_reason.nil?
@@ -215,7 +215,7 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ['PROVISIONED', 'AWAITING_APPROVAL', 'LAUNCHED', 'PAUSED', 'CLOSED', 'INVOICED'])
+      validator = EnumAttributeValidator.new('String', LineItems::STATUSES)
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end
