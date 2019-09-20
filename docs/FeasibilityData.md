@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**auto_repricing_threshold** | **Float** |  | [optional] 
 **cost_per_interview** | **Float** | Amount Research Now SSI will be paid for each delivered complete | [optional] 
 **currency** | **String** | Currency associated with the costPerInterview | [optional] 
 **expiry** | **String** | Time stamp of the expiry of the feasibility of the lineitem. | [optional] 

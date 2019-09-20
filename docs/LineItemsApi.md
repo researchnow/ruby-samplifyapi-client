@@ -1,6 +1,6 @@
 # SamplifyAPIClient::LineItemsApi
 
-All URIs are relative to *https://api.uat.pe.researchnow.com*
+All URIs are relative to *https://api.dev.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
- - **Accept**: application/vnd.createlineitem+json
+ - **Accept**: application/vnd.app.error+json, application/vnd.createlineitem+json
 
 
 

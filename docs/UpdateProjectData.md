@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **exclusions** | [**ExclusionData**](ExclusionData.md) |  | [optional] 
 **line_items** | [**Array&lt;UpdateProjectLineItem&gt;**](UpdateProjectLineItem.md) | List of line items for the project. | [optional] 
 **notification_emails** | **Array&lt;String&gt;** | List of emails to subscribe to notifications | [optional] 
+**respondent_filters** | [**Array&lt;RespondentFilterData&gt;**](RespondentFilterData.md) | Inclusion/Exclusions on the project | [optional] 
 **title** | **String** | Project title | [optional] 
 
 

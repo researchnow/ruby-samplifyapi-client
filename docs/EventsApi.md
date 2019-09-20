@@ -1,14 +1,16 @@
 # SamplifyAPIClient::EventsApi
 
-All URIs are relative to *https://api.uat.pe.researchnow.com*
+All URIs are relative to *https://api.dev.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**events_accept**](EventsApi.md#events_accept) | **POST** /sample/v1/events/{eventId}/accept | accept events
+[**events_createproject**](EventsApi.md#events_createproject) | **POST** /sample/v1/events/lineItems/createproject | createproject events
 [**events_get**](EventsApi.md#events_get) | **GET** /sample/v1/events/{eventId} | get events
 [**events_list**](EventsApi.md#events_list) | **GET** /sample/v1/events | list events
 [**events_reject**](EventsApi.md#events_reject) | **POST** /sample/v1/events/{eventId}/reject | reject events
 [**events_reprice**](EventsApi.md#events_reprice) | **POST** /sample/v1/events/lineItems/reprice | reprice events
+[**events_state_change**](EventsApi.md#events_state_change) | **POST** /sample/v1/events/lineItems/stateChange | stateChange events
 
 
 # **events_accept**
@@ -62,6 +64,53 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
  - **Accept**: application/vnd.event+json
+
+
+
+# **events_createproject**
+> CreateProject events_createproject(payload)
+
+createproject events
+
+createproject event.
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+
+api_instance = SamplifyAPIClient::EventsApi.new
+
+payload = SamplifyAPIClient::CreateProjectPayload.new # CreateProjectPayload | 
+
+
+begin
+  #createproject events
+  result = api_instance.events_createproject(payload)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling EventsApi->events_createproject: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | [**CreateProjectPayload**](CreateProjectPayload.md)|  | 
+
+### Return type
+
+[**CreateProject**](CreateProject.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.createproject+json
 
 
 
@@ -282,6 +331,53 @@ No authorization required
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
  - **Accept**: application/vnd.reprice+json
+
+
+
+# **events_state_change**
+> StateChange events_state_change(payload)
+
+stateChange events
+
+Line item state change event.
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+
+api_instance = SamplifyAPIClient::EventsApi.new
+
+payload = SamplifyAPIClient::StateChangePayload.new # StateChangePayload | 
+
+
+begin
+  #stateChange events
+  result = api_instance.events_state_change(payload)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling EventsApi->events_state_change: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | [**StateChangePayload**](StateChangePayload.md)|  | 
+
+### Return type
+
+[**StateChange**](StateChange.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.statechange+json
 
 
 

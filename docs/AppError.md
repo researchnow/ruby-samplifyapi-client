@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [****](.md) | Data | 
+**data** | **Object** | Data | 
 **meta** | [**Meta**](Meta.md) |  | 
 **status** | [**Status**](Status.md) |  | 
 

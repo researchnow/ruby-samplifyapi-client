@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **original_estimated_cost** | **Float** | Original Estimated Cost | 
 **project_id** | **Integer** | Project ID | 
 **quota_group_id** | **Integer** | Quota Group ID | 
-**reason** | **String** | Reason for event: UNKNOWN, LOI_CHANGE, IR_CHANGE | 
+**reason** | **String** | Reason for event: LOI_CHANGE, IR_CHANGE, IR_AND_LOI_CHANGE, UNKNOWN | 
 **request_new_price** | **Float** | Request New Price | 
 **required_completes** | **Integer** | Required Completes | 
 

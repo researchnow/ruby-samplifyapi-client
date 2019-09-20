@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **String** | key of the URL | 
-**value** | **String** | value for the URL key | 
+**values** | **Array&lt;String&gt;** | values for the URL key | 
 
 

@@ -1,6 +1,6 @@
 # SamplifyAPIClient::DefaultApi
 
-All URIs are relative to *https://api.uat.pe.researchnow.com*
+All URIs are relative to *https://api.dev.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

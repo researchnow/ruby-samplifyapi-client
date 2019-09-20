@@ -1,6 +1,6 @@
 # SamplifyAPIClient::ProjectsApi
 
-All URIs are relative to *https://api.uat.pe.researchnow.com*
+All URIs are relative to *https://api.dev.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
- - **Accept**: application/vnd.create+json
+ - **Accept**: application/vnd.app.error+json, application/vnd.create+json
 
 
 
@@ -460,6 +460,7 @@ api_instance = SamplifyAPIClient::ProjectsApi.new
 opts = { 
   created_at: 'created_at_example', # String | return projects with createdAt start date
   ext_project_id: 'ext_project_id_example', # String | Only return project with the given external project id
+  job_number: 'job_number_example', # String | Only return projects with the given job number
   limit: 10, # Integer | Maximum number of projects to return
   offset: 0, # Integer | The first zero-based offset project to return
   scope: 'scope_example', # String | Only return projects within the given scope
@@ -483,6 +484,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created_at** | **String**| return projects with createdAt start date | [optional] 
  **ext_project_id** | **String**| Only return project with the given external project id | [optional] 
+ **job_number** | **String**| Only return projects with the given job number | [optional] 
  **limit** | **Integer**| Maximum number of projects to return | [optional] [default to 10]
  **offset** | **Integer**| The first zero-based offset project to return | [optional] [default to 0]
  **scope** | **String**| Only return projects within the given scope | [optional] 

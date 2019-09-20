@@ -6,10 +6,12 @@ Name | Type | Description | Notes
 **actual_median_loi** | **Integer** | Calculated median length of interview from actual panelists | 
 **attempts** | **Integer** | Total number of panelists that entered the project | 
 **completes** | **Integer** | Total number of panelists that completed the project | 
+**completes_refused** | **Integer** | Total number of panelists that refused to complete the project | 
 **conversion** | **Float** | Ratio of completes over attempts. (ranges from 0-1) | 
 **currency** | **String** | Currency ISO code | 
 **estimated_cost** | **Float** | Total estimated cost | 
 **ext_project_id** | **String** | A unique identifier for your project | 
+**incompletes** | **Integer** | Total number of panelists that dropped the project | 
 **incurred_cost** | **Float** | Total incurred cost | 
 **line_items** | [**Array&lt;LineItemReportData&gt;**](LineItemReportData.md) |  | [optional] 
 **overquotas** | **Integer** | Total number of panelists that triggered an overquota for the project | 

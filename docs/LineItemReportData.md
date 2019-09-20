@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 **actual_median_loi** | **Integer** | Calculated median length of interview from actual panelists | 
 **attempts** | **Integer** | Total number of panelists that entered the project | 
 **completes** | **Integer** | Total number of panelists that completed the project | 
+**completes_refused** | **Integer** | Total number of panelists that refused to complete the project | 
 **conversion** | **Float** | Ratio of completes over attempts. (ranges from 0-1) | 
 **country_iso_code** | **String** | ISO country code | 
 **currency** | **String** | Currency ISO code | 
 **estimated_cost** | **Float** | Total estimated cost | 
 **ext_line_item_id** | **String** | A unique identifier for your Line Item | 
+**incompletes** | **Integer** | Total number of panelists that dropped the project | 
 **incurred_cost** | **Float** | Total incurred cost | 
 **language_iso_code** | **String** | ISO language code | 
 **last_accepted_incidence_rate** | **Float** | Last accepted incidence rate | 
