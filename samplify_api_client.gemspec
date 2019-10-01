@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Saadullah Saeed"]
   s.email       = ["ssaeed@researchnow.com"]
-  s.homepage    = "http://developers.dynata.com/samplifyapi-docs/"
+  s.homepage    = "http://developers.dynata.com"
   s.summary     = "Samplify API Ruby Gem"
   s.description = "This is an API Client for the Dynata Samplify API"
   s.license     = "Unlicense"
