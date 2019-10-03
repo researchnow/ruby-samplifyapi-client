@@ -236,8 +236,6 @@ module SamplifyAPIClient
       state_validator = EnumAttributeValidator.new('String', ['ACTIVE', 'DEPRECATED', 'INACTIVE'])
       return false unless state_validator.valid?(@state)
       return false if @text.nil?
-      tier_validator = EnumAttributeValidator.new('String', ['Standard', 'Premium'])
-      return false unless tier_validator.valid?(@tier)
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ['LIST', 'INTEGER', 'STRING', 'INTEGER_RANGE'])
       return false unless type_validator.valid?(@type)
@@ -252,16 +250,6 @@ module SamplifyAPIClient
         fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
       end
       @state = state
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] tier Object to be assigned
-    def tier=(tier)
-      validator = EnumAttributeValidator.new('String', ['Standard', 'Premium'])
-      unless validator.valid?(tier)
-        fail ArgumentError, 'invalid value for "tier", must be one of #{validator.allowable_values}.'
-      end
-      @tier = tier
     end
 
     # Custom attribute writer method checking allowed values (enum).

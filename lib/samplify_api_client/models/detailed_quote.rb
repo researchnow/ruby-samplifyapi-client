@@ -13,29 +13,41 @@ Swagger Codegen version: 2.4.8
 require 'date'
 
 module SamplifyAPIClient
-  class FeasibilityResponseData
-    # A unique identifier for your Line Item
-    attr_accessor :ext_line_item_id
+  class DetailedQuote
+    # Amount Research Now SSI will be paid for each delivered complete
+    attr_accessor :cost_per_unit
 
-    attr_accessor :feasibility
+    # Estimated cost for the quote detail
+    attr_accessor :estimated_cost
 
-    attr_accessor :quote
+    # Title of the quote detail
+    attr_accessor :title
+
+    # Type of the quote detail
+    attr_accessor :type
+
+    # Total requested completes for the lineitem
+    attr_accessor :units
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ext_line_item_id' => :'extLineItemId',
-        :'feasibility' => :'feasibility',
-        :'quote' => :'quote'
+        :'cost_per_unit' => :'costPerUnit',
+        :'estimated_cost' => :'estimatedCost',
+        :'title' => :'title',
+        :'type' => :'type',
+        :'units' => :'units'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'ext_line_item_id' => :'String',
-        :'feasibility' => :'FeasibilityData',
-        :'quote' => :'Quote'
+        :'cost_per_unit' => :'Float',
+        :'estimated_cost' => :'Float',
+        :'title' => :'String',
+        :'type' => :'String',
+        :'units' => :'Integer'
       }
     end
 
@@ -47,16 +59,24 @@ module SamplifyAPIClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'extLineItemId')
-        self.ext_line_item_id = attributes[:'extLineItemId']
+      if attributes.has_key?(:'costPerUnit')
+        self.cost_per_unit = attributes[:'costPerUnit']
       end
 
-      if attributes.has_key?(:'feasibility')
-        self.feasibility = attributes[:'feasibility']
+      if attributes.has_key?(:'estimatedCost')
+        self.estimated_cost = attributes[:'estimatedCost']
       end
 
-      if attributes.has_key?(:'quote')
-        self.quote = attributes[:'quote']
+      if attributes.has_key?(:'title')
+        self.title = attributes[:'title']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'units')
+        self.units = attributes[:'units']
       end
     end
 
@@ -78,9 +98,11 @@ module SamplifyAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ext_line_item_id == o.ext_line_item_id &&
-          feasibility == o.feasibility &&
-          quote == o.quote
+          cost_per_unit == o.cost_per_unit &&
+          estimated_cost == o.estimated_cost &&
+          title == o.title &&
+          type == o.type &&
+          units == o.units
     end
 
     # @see the `==` method
@@ -92,7 +114,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [ext_line_item_id, feasibility, quote].hash
+      [cost_per_unit, estimated_cost, title, type, units].hash
     end
 
     # Builds the object from hash
