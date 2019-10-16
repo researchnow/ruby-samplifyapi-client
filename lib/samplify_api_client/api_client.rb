@@ -55,6 +55,13 @@ module SamplifyAPIClient
       response = RestClient::Request.execute(params)
       data = deserialize(response, opts[:return_type])
       return data, response.code, response.headers
+    rescue RestClient::ExceptionWithResponse => ex
+      fail ApiError.new(:code => ex.response.code,
+                        :response_headers => ex.response.headers,
+                        :response_body => ex.response.body)
+    rescue StandardError => ex
+      fail ApiError.new(:code => 500,
+                        :message => ex.message)
     end
 
     # Builds the HTTP request
