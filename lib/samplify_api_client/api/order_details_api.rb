@@ -41,7 +41,7 @@ module SamplifyAPIClient
         fail ArgumentError, "Missing the required parameter 'order_number' when calling OrderDetailsApi.order_details_get_order_number_details"
       end
       # resource path
-      local_var_path = '/sample/v1/orderdetails/{orderNumber}/'.sub('{' + 'orderNumber' + '}', order_number.to_s)
+      local_var_path = '/internal/v1/orderdetails/{orderNumber}/'.sub('{' + 'orderNumber' + '}', order_number.to_s)
 
       # query parameters
       query_params = {}
