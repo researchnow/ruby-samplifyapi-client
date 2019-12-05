@@ -32,6 +32,18 @@ module SamplifyAPIClient
     # relatedOrderCpi
     attr_accessor :related_order_cpi
 
+    # basicSecurityKey
+    attr_accessor :basic_security_key
+
+    # highSecurityKey
+    attr_accessor :high_security_key
+
+    # secureEndLinkLevel
+    attr_accessor :secure_end_link_level
+
+    # secureEndLinkLevelName
+    attr_accessor :secure_end_link_level_name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -40,7 +52,11 @@ module SamplifyAPIClient
         :'no_charge' => :'noCharge',
         :'order_type' => :'orderType',
         :'ordernumber' => :'ordernumber',
-        :'related_order_cpi' => :'relatedOrderCpi'
+        :'related_order_cpi' => :'relatedOrderCpi',
+        :'basic_security_key' => :'basicSecurityKey',
+        :'high_security_key' => :'highSecurityKey',
+        :'secure_end_link_level' => :'secureEndLinkLevel',
+        :'secure_end_link_level_name' => :'secureEndLinkLevelName'
       }
     end
 
@@ -52,7 +68,11 @@ module SamplifyAPIClient
         :'no_charge' => :'BOOLEAN',
         :'order_type' => :'String',
         :'ordernumber' => :'String',
-        :'related_order_cpi' => :'Float'
+        :'related_order_cpi' => :'Float',
+        :'basic_security_key' => :'String',
+        :'high_security_key' => :'String',
+        :'secure_end_link_level' => :'Integer',
+        :'secure_end_link_level_name' => :'String'
       }
     end
 
@@ -87,6 +107,22 @@ module SamplifyAPIClient
       if attributes.has_key?(:'relatedOrderCpi')
         self.related_order_cpi = attributes[:'relatedOrderCpi']
       end
+
+      if attributes.has_key?(:'basicSecurityKey')
+        self.basic_security_key = attributes[:'basicSecurityKey']
+      end
+
+      if attributes.has_key?(:'highSecurityKey')
+        self.high_security_key = attributes[:'highSecurityKey']
+      end
+
+      if attributes.has_key?(:'secureEndLinkLevel')
+        self.secure_end_link_level = attributes[:'secureEndLinkLevel']
+      end
+
+      if attributes.has_key?(:'secureEndLinkLevelName')
+        self.secure_end_link_level_name = attributes[:'secureEndLinkLevelName']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,6 +153,22 @@ module SamplifyAPIClient
         invalid_properties.push('invalid value for "related_order_cpi", related_order_cpi cannot be nil.')
       end
 
+      if @basic_security_key.nil?
+        invalid_properties.push('invalid value for "basic_security_key", basic_security_key cannot be nil.')
+      end
+
+      if @high_security_key.nil?
+        invalid_properties.push('invalid value for "high_security_key", high_security_key cannot be nil.')
+      end
+
+      if @secure_end_link_level.nil?
+        invalid_properties.push('invalid value for "secure_end_link_level", secure_end_link_level cannot be nil.')
+      end
+
+      if @secure_end_link_level_name.nil?
+        invalid_properties.push('invalid value for "secure_end_link_level_name", secure_end_link_level_name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -129,6 +181,10 @@ module SamplifyAPIClient
       return false if @order_type.nil?
       return false if @ordernumber.nil?
       return false if @related_order_cpi.nil?
+      return false if @basic_security_key.nil?
+      return false if @high_security_key.nil?
+      return false if @secure_end_link_level.nil?
+      return false if @secure_end_link_level_name.nil?
       true
     end
 
@@ -142,7 +198,11 @@ module SamplifyAPIClient
           no_charge == o.no_charge &&
           order_type == o.order_type &&
           ordernumber == o.ordernumber &&
-          related_order_cpi == o.related_order_cpi
+          related_order_cpi == o.related_order_cpi &&
+          basic_security_key == o.basic_security_key &&
+          high_security_key == o.high_security_key &&
+          secure_end_link_level == o.secure_end_link_level &&
+          secure_end_link_level_name == o.secure_end_link_level_name
     end
 
     # @see the `==` method
@@ -154,7 +214,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [guid, name, no_charge, order_type, ordernumber, related_order_cpi].hash
+      [guid, name, no_charge, order_type, ordernumber, related_order_cpi, basic_security_key, high_security_key, secure_end_link_level, secure_end_link_level_name].hash
     end
 
     # Builds the object from hash
