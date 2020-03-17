@@ -181,6 +181,60 @@ module SamplifyAPIClient
       end
       return data, status_code, headers
     end
+    # invoiceproject events
+    # invoiceproject event.
+    # @param payload 
+    # @param [Hash] opts the optional parameters
+    # @return [InvoiceProject]
+    def events_invoiceproject(payload, opts = {})
+      data, _status_code, _headers = events_invoiceproject_with_http_info(payload, opts)
+      data
+    end
+
+    # invoiceproject events
+    # invoiceproject event.
+    # @param payload 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InvoiceProject, Fixnum, Hash)>] InvoiceProject data, response status code and response headers
+    def events_invoiceproject_with_http_info(payload, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsApi.events_invoiceproject ...'
+      end
+      # verify the required parameter 'payload' is set
+      if @api_client.config.client_side_validation && payload.nil?
+        fail ArgumentError, "Missing the required parameter 'payload' when calling EventsApi.events_invoiceproject"
+      end
+      # resource path
+      local_var_path = '/sample/v1/events/projects/invoice'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.invoiceproject+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/xml', 'application/gob', 'application/x-gob'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(payload)
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InvoiceProject')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsApi#events_invoiceproject\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # list events
     # List events.
     # @param [Hash] opts the optional parameters

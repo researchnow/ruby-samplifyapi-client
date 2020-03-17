@@ -23,6 +23,28 @@ module SamplifyAPIClient
     # Options for the attribute
     attr_accessor :options
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -83,8 +105,20 @@ module SamplifyAPIClient
     # @return true if the model is valid
     def valid?
       return false if @attribute_id.nil?
+      operator_validator = EnumAttributeValidator.new('String', ['INCLUDE', 'EXCLUDE', 'include', 'exclude'])
+      return false unless operator_validator.valid?(@operator)
       return false if @options.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] operator Object to be assigned
+    def operator=(operator)
+      validator = EnumAttributeValidator.new('String', ['INCLUDE', 'EXCLUDE', 'include', 'exclude'])
+      unless validator.valid?(operator)
+        fail ArgumentError, 'invalid value for "operator", must be one of #{validator.allowable_values}.'
+      end
+      @operator = operator
     end
 
     # Checks equality by comparing each attribute.

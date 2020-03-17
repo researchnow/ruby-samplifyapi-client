@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**line_items_close**](LineItemsApi.md#line_items_close) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/close | close lineItems
 [**line_items_create**](LineItemsApi.md#line_items_create) | **POST** /sample/v1/projects/{extProjectId}/lineItems | create lineItems
 [**line_items_get**](LineItemsApi.md#line_items_get) | **GET** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId} | get lineItems
+[**line_items_get_detailed_line_item_report**](LineItemsApi.md#line_items_get_detailed_line_item_report) | **GET** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/detailedReport | getDetailedLineItemReport lineItems
 [**line_items_launch**](LineItemsApi.md#line_items_launch) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/launch | launch lineItems
 [**line_items_list_line_items**](LineItemsApi.md#line_items_list_line_items) | **GET** /sample/v1/projects/{extProjectId}/lineItems | listLineItems lineItems
 [**line_items_pause**](LineItemsApi.md#line_items_pause) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/pause | pause lineItems
@@ -178,6 +179,61 @@ Name | Type | Description  | Notes
 
 
 
+# **line_items_get_detailed_line_item_report**
+> DetailedLineItemReport line_items_get_detailed_line_item_report(ext_line_item_id, ext_project_id)
+
+getDetailedLineItemReport lineItems
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+# setup authorization
+SamplifyAPIClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = SamplifyAPIClient::LineItemsApi.new
+
+ext_line_item_id = 'ext_line_item_id_example' # String | 
+
+ext_project_id = 'ext_project_id_example' # String | 
+
+
+begin
+  #getDetailedLineItemReport lineItems
+  result = api_instance.line_items_get_detailed_line_item_report(ext_line_item_id, ext_project_id)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling LineItemsApi->line_items_get_detailed_line_item_report: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ext_line_item_id** | **String**|  | 
+ **ext_project_id** | **String**|  | 
+
+### Return type
+
+[**DetailedLineItemReport**](DetailedLineItemReport.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.getdetailedlineitemreport+json
+
+
+
 # **line_items_launch**
 > CreateLineItem line_items_launch(ext_line_item_id, ext_project_id)
 
@@ -260,6 +316,7 @@ opts = {
   language_iso_code: 'language_iso_code_example', # String | Only return line items with the given language ISO Code
   limit: 10, # Integer | Maximum number of line items to return
   offset: 0, # Integer | The first zero-based offset line item to return
+  qa_state: 'qa_state_example', # String | Only return lineitems with the given QA state
   sort: ['sort_example'], # Array<String> | Sort the line items by the given key(s)
   state: 'state_example', # String | Only return lineitems with the given state
   state_reason: 'state_reason_example', # String | Only return line items with the given state reason
@@ -285,6 +342,7 @@ Name | Type | Description  | Notes
  **language_iso_code** | **String**| Only return line items with the given language ISO Code | [optional] 
  **limit** | **Integer**| Maximum number of line items to return | [optional] [default to 10]
  **offset** | **Integer**| The first zero-based offset line item to return | [optional] [default to 0]
+ **qa_state** | **String**| Only return lineitems with the given QA state | [optional] 
  **sort** | [**Array&lt;String&gt;**](String.md)| Sort the line items by the given key(s) | [optional] 
  **state** | **String**| Only return lineitems with the given state | [optional] 
  **state_reason** | **String**| Only return line items with the given state reason | [optional] 

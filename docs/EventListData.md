@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actions** | **Object** | Event actions | [optional] 
 **created_at** | **String** | Time event created at | 
+**details** | [**EventDetails**](EventDetails.md) |  | [optional] 
 **event_id** | **Integer** | Unique event ID | 
 **event_type** | **String** | Event Type | 
 **ext_line_item_id** | **String** | A unique identifier for your Line Item | 

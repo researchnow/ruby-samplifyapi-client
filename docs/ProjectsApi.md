@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**projects_close**](ProjectsApi.md#projects_close) | **POST** /sample/v1/projects/{extProjectId}/close | close projects
 [**projects_create**](ProjectsApi.md#projects_create) | **POST** /sample/v1/projects | create projects
 [**projects_get**](ProjectsApi.md#projects_get) | **GET** /sample/v1/projects/{extProjectId} | get projects
+[**projects_get_detailed_report**](ProjectsApi.md#projects_get_detailed_report) | **GET** /sample/v1/projects/{extProjectId}/detailedReport | getDetailedReport projects
+[**projects_get_invoice_summary**](ProjectsApi.md#projects_get_invoice_summary) | **GET** /sample/v1/projects/invoices/summary | getInvoiceSummary projects
 [**projects_get_report**](ProjectsApi.md#projects_get_report) | **GET** /sample/v1/projects/{extProjectId}/report | getReport projects
 [**projects_get_reports**](ProjectsApi.md#projects_get_reports) | **GET** /sample/v1/projects/report | getReports projects
 [**projects_get_survey_end_links**](ProjectsApi.md#projects_get_survey_end_links) | **GET** /sample/v1/projects/{extProjectId}/surveys/{surveyId}/links | getSurveyEndLinks projects
@@ -225,6 +227,120 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
  - **Accept**: application/vnd.app.error+json, application/vnd.create+json
+
+
+
+# **projects_get_detailed_report**
+> DetailedProjectReport projects_get_detailed_report(ext_project_id)
+
+getDetailedReport projects
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+# setup authorization
+SamplifyAPIClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = SamplifyAPIClient::ProjectsApi.new
+
+ext_project_id = 'ext_project_id_example' # String | 
+
+
+begin
+  #getDetailedReport projects
+  result = api_instance.projects_get_detailed_report(ext_project_id)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling ProjectsApi->projects_get_detailed_report: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ext_project_id** | **String**|  | 
+
+### Return type
+
+[**DetailedProjectReport**](DetailedProjectReport.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.projects.detailedreport+json
+
+
+
+# **projects_get_invoice_summary**
+> projects_get_invoice_summary(opts)
+
+getInvoiceSummary projects
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+# setup authorization
+SamplifyAPIClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = SamplifyAPIClient::ProjectsApi.new
+
+opts = { 
+  end_date: 'end_date_example', # String | Only return invoice summary of projects closed before this date
+  ext_project_id: 'ext_project_id_example', # String | Only return invoice summary of projects with the given external project ids. Multiple projectIds can be given as comma separated values
+  limit: 10, # Integer | Maximum number of summaries to return
+  offset: 0, # Integer | The first zero-based offset summary to return
+  sort: ['sort_example'], # Array<String> | Sort the summaries by the given key(s)
+  start_date: 'start_date_example' # String | Only return invoice summary of projects closed after this date
+}
+
+begin
+  #getInvoiceSummary projects
+  api_instance.projects_get_invoice_summary(opts)
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling ProjectsApi->projects_get_invoice_summary: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **end_date** | **String**| Only return invoice summary of projects closed before this date | [optional] 
+ **ext_project_id** | **String**| Only return invoice summary of projects with the given external project ids. Multiple projectIds can be given as comma separated values | [optional] 
+ **limit** | **Integer**| Maximum number of summaries to return | [optional] [default to 10]
+ **offset** | **Integer**| The first zero-based offset summary to return | [optional] [default to 0]
+ **sort** | [**Array&lt;String&gt;**](String.md)| Sort the summaries by the given key(s) | [optional] 
+ **start_date** | **String**| Only return invoice summary of projects closed after this date | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.app.error+json, text/plain
 
 
 
@@ -458,6 +574,7 @@ end
 api_instance = SamplifyAPIClient::ProjectsApi.new
 
 opts = { 
+  billing_date: 'billing_date_example', # String | return projects with billing date matching the given date range
   created_at: 'created_at_example', # String | return projects with createdAt start date
   ext_project_id: 'ext_project_id_example', # String | Only return project with the given external project id
   job_number: 'job_number_example', # String | Only return projects with the given job number
@@ -482,6 +599,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **billing_date** | **String**| return projects with billing date matching the given date range | [optional] 
  **created_at** | **String**| return projects with createdAt start date | [optional] 
  **ext_project_id** | **String**| Only return project with the given external project id | [optional] 
  **job_number** | **String**| Only return projects with the given job number | [optional] 

@@ -47,7 +47,7 @@ describe 'UpdateLineItem' do
   describe 'test attribute "delivery_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["SLOW", "BALANCED", "FAST", "BURST"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["SLOW", "BALANCED", "FAST", "BURST", "UNLIMITED"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.delivery_type = value }.not_to raise_error
       # end

@@ -16,7 +16,12 @@ module SamplifyAPIClient
   class ProjectResponseData
     attr_accessor :author
 
+    attr_accessor :billing
+
     attr_accessor :category
+
+    # Timestamp of when the project was closed
+    attr_accessor :closed_at
 
     # Timestamp of when the project was created
     attr_accessor :created_at
@@ -34,6 +39,9 @@ module SamplifyAPIClient
 
     # Project job number
     attr_accessor :job_number
+
+    # Timestamp of when the project was launched
+    attr_accessor :launched_at
 
     # List of line items for the project.
     attr_accessor :line_items
@@ -56,24 +64,31 @@ module SamplifyAPIClient
     # Timestamp of when the project was updated
     attr_accessor :updated_at
 
+    # set to true to dedupe using relevant id
+    attr_accessor :use_relevant_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'author' => :'author',
+        :'billing' => :'billing',
         :'category' => :'category',
+        :'closed_at' => :'closedAt',
         :'created_at' => :'createdAt',
         :'devices' => :'devices',
         :'dynata_line_item_reference_id' => :'dynataLineItemReferenceId',
         :'exclusions' => :'exclusions',
         :'ext_project_id' => :'extProjectId',
         :'job_number' => :'jobNumber',
+        :'launched_at' => :'launchedAt',
         :'line_items' => :'lineItems',
         :'notification_emails' => :'notificationEmails',
         :'respondent_filters' => :'respondentFilters',
         :'state' => :'state',
         :'state_last_updated_at' => :'stateLastUpdatedAt',
         :'title' => :'title',
-        :'updated_at' => :'updatedAt'
+        :'updated_at' => :'updatedAt',
+        :'use_relevant_id' => :'useRelevantId'
       }
     end
 
@@ -81,20 +96,24 @@ module SamplifyAPIClient
     def self.swagger_types
       {
         :'author' => :'Author',
+        :'billing' => :'Billing',
         :'category' => :'ProjectCategoryData',
+        :'closed_at' => :'String',
         :'created_at' => :'String',
         :'devices' => :'Array<String>',
         :'dynata_line_item_reference_id' => :'String',
         :'exclusions' => :'ExclusionData',
         :'ext_project_id' => :'String',
         :'job_number' => :'String',
+        :'launched_at' => :'String',
         :'line_items' => :'Array<LineItemResponseData>',
         :'notification_emails' => :'Array<String>',
         :'respondent_filters' => :'Array<RespondentFilterData>',
         :'state' => :'String',
         :'state_last_updated_at' => :'String',
         :'title' => :'String',
-        :'updated_at' => :'String'
+        :'updated_at' => :'String',
+        :'use_relevant_id' => :'BOOLEAN'
       }
     end
 
@@ -110,8 +129,16 @@ module SamplifyAPIClient
         self.author = attributes[:'author']
       end
 
+      if attributes.has_key?(:'billing')
+        self.billing = attributes[:'billing']
+      end
+
       if attributes.has_key?(:'category')
         self.category = attributes[:'category']
+      end
+
+      if attributes.has_key?(:'closedAt')
+        self.closed_at = attributes[:'closedAt']
       end
 
       if attributes.has_key?(:'createdAt')
@@ -138,6 +165,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'jobNumber')
         self.job_number = attributes[:'jobNumber']
+      end
+
+      if attributes.has_key?(:'launchedAt')
+        self.launched_at = attributes[:'launchedAt']
       end
 
       if attributes.has_key?(:'lineItems')
@@ -172,6 +203,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'updatedAt')
         self.updated_at = attributes[:'updatedAt']
+      end
+
+      if attributes.has_key?(:'useRelevantId')
+        self.use_relevant_id = attributes[:'useRelevantId']
       end
     end
 
@@ -239,20 +274,24 @@ module SamplifyAPIClient
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          billing == o.billing &&
           category == o.category &&
+          closed_at == o.closed_at &&
           created_at == o.created_at &&
           devices == o.devices &&
           dynata_line_item_reference_id == o.dynata_line_item_reference_id &&
           exclusions == o.exclusions &&
           ext_project_id == o.ext_project_id &&
           job_number == o.job_number &&
+          launched_at == o.launched_at &&
           line_items == o.line_items &&
           notification_emails == o.notification_emails &&
           respondent_filters == o.respondent_filters &&
           state == o.state &&
           state_last_updated_at == o.state_last_updated_at &&
           title == o.title &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
+          use_relevant_id == o.use_relevant_id
     end
 
     # @see the `==` method
@@ -264,7 +303,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [author, category, created_at, devices, dynata_line_item_reference_id, exclusions, ext_project_id, job_number, line_items, notification_emails, respondent_filters, state, state_last_updated_at, title, updated_at].hash
+      [author, billing, category, closed_at, created_at, devices, dynata_line_item_reference_id, exclusions, ext_project_id, job_number, launched_at, line_items, notification_emails, respondent_filters, state, state_last_updated_at, title, updated_at, use_relevant_id].hash
     end
 
     # Builds the object from hash

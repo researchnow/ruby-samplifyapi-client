@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**events_accept**](EventsApi.md#events_accept) | **POST** /sample/v1/events/{eventId}/accept | accept events
 [**events_createproject**](EventsApi.md#events_createproject) | **POST** /sample/v1/events/lineItems/createproject | createproject events
 [**events_get**](EventsApi.md#events_get) | **GET** /sample/v1/events/{eventId} | get events
+[**events_invoiceproject**](EventsApi.md#events_invoiceproject) | **POST** /sample/v1/events/projects/invoice | invoiceproject events
 [**events_list**](EventsApi.md#events_list) | **GET** /sample/v1/events | list events
 [**events_reject**](EventsApi.md#events_reject) | **POST** /sample/v1/events/{eventId}/reject | reject events
 [**events_reprice**](EventsApi.md#events_reprice) | **POST** /sample/v1/events/lineItems/reprice | reprice events
@@ -165,6 +166,53 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
  - **Accept**: application/vnd.event+json
+
+
+
+# **events_invoiceproject**
+> InvoiceProject events_invoiceproject(payload)
+
+invoiceproject events
+
+invoiceproject event.
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+
+api_instance = SamplifyAPIClient::EventsApi.new
+
+payload = SamplifyAPIClient::InvoiceProjectPayload.new # InvoiceProjectPayload | 
+
+
+begin
+  #invoiceproject events
+  result = api_instance.events_invoiceproject(payload)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling EventsApi->events_invoiceproject: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | [**InvoiceProjectPayload**](InvoiceProjectPayload.md)|  | 
+
+### Return type
+
+[**InvoiceProject**](InvoiceProject.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.invoiceproject+json
 
 
 

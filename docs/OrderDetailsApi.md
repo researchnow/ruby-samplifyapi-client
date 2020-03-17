@@ -4,7 +4,7 @@ All URIs are relative to *https://api.dev.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**order_details_get_order_number_details**](OrderDetailsApi.md#order_details_get_order_number_details) | **GET** /sample/v1/orderdetails/{orderNumber}/ | getOrderNumberDetails orderDetails
+[**order_details_get_order_number_details**](OrderDetailsApi.md#order_details_get_order_number_details) | **GET** /internal/v1/orderdetails/{orderNumber}/ | getOrderNumberDetails orderDetails
 
 
 # **order_details_get_order_number_details**

@@ -14,6 +14,8 @@ require 'date'
 
 module SamplifyAPIClient
   class ProjectActionResponse
+    attr_accessor :billing
+
     # Timestamp of when the line item was created
     attr_accessor :created_at
 
@@ -35,6 +37,7 @@ module SamplifyAPIClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'billing' => :'billing',
         :'created_at' => :'createdAt',
         :'ext_project_id' => :'extProjectId',
         :'line_items' => :'lineItems',
@@ -47,6 +50,7 @@ module SamplifyAPIClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'billing' => :'Billing',
         :'created_at' => :'String',
         :'ext_project_id' => :'String',
         :'line_items' => :'Array<LineItemActionResponse>',
@@ -63,6 +67,10 @@ module SamplifyAPIClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'billing')
+        self.billing = attributes[:'billing']
+      end
 
       if attributes.has_key?(:'createdAt')
         self.created_at = attributes[:'createdAt']
@@ -109,6 +117,7 @@ module SamplifyAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          billing == o.billing &&
           created_at == o.created_at &&
           ext_project_id == o.ext_project_id &&
           line_items == o.line_items &&
@@ -126,7 +135,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, ext_project_id, line_items, state, state_last_updated_at, updated_at].hash
+      [billing, created_at, ext_project_id, line_items, state, state_last_updated_at, updated_at].hash
     end
 
     # Builds the object from hash

@@ -68,6 +68,18 @@ describe 'LineItemsApi' do
     end
   end
 
+  # unit tests for line_items_get_detailed_line_item_report
+  # getDetailedLineItemReport lineItems
+  # @param ext_line_item_id 
+  # @param ext_project_id 
+  # @param [Hash] opts the optional parameters
+  # @return [DetailedLineItemReport]
+  describe 'line_items_get_detailed_line_item_report test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for line_items_launch
   # launch lineItems
   # @param ext_line_item_id 
@@ -89,6 +101,7 @@ describe 'LineItemsApi' do
   # @option opts [String] :language_iso_code Only return line items with the given language ISO Code
   # @option opts [Integer] :limit Maximum number of line items to return
   # @option opts [Integer] :offset The first zero-based offset line item to return
+  # @option opts [String] :qa_state Only return lineitems with the given QA state
   # @option opts [Array<String>] :sort Sort the line items by the given key(s)
   # @option opts [String] :state Only return lineitems with the given state
   # @option opts [String] :state_reason Only return line items with the given state reason

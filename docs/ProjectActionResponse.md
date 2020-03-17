@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**billing** | [**Billing**](Billing.md) |  | [optional] 
 **created_at** | **String** | Timestamp of when the line item was created | [optional] 
 **ext_project_id** | **String** | A unique identifier for your project | [optional] 
 **line_items** | [**Array&lt;LineItemActionResponse&gt;**](LineItemActionResponse.md) | line items for the project | [optional] 

@@ -77,6 +77,33 @@ describe 'ProjectsApi' do
     end
   end
 
+  # unit tests for projects_get_detailed_report
+  # getDetailedReport projects
+  # @param ext_project_id 
+  # @param [Hash] opts the optional parameters
+  # @return [DetailedProjectReport]
+  describe 'projects_get_detailed_report test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for projects_get_invoice_summary
+  # getInvoiceSummary projects
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :end_date Only return invoice summary of projects closed before this date
+  # @option opts [String] :ext_project_id Only return invoice summary of projects with the given external project ids. Multiple projectIds can be given as comma separated values
+  # @option opts [Integer] :limit Maximum number of summaries to return
+  # @option opts [Integer] :offset The first zero-based offset summary to return
+  # @option opts [Array<String>] :sort Sort the summaries by the given key(s)
+  # @option opts [String] :start_date Only return invoice summary of projects closed after this date
+  # @return [nil]
+  describe 'projects_get_invoice_summary test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for projects_get_report
   # getReport projects
   # @param ext_project_id 
@@ -125,6 +152,7 @@ describe 'ProjectsApi' do
   # unit tests for projects_list
   # list projects
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :billing_date return projects with billing date matching the given date range
   # @option opts [String] :created_at return projects with createdAt start date
   # @option opts [String] :ext_project_id Only return project with the given external project id
   # @option opts [String] :job_number Only return projects with the given job number

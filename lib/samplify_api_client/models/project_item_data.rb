@@ -16,6 +16,11 @@ module SamplifyAPIClient
   class ProjectItemData
     attr_accessor :author
 
+    attr_accessor :billing
+
+    # Timestamp of when the project was closed
+    attr_accessor :closed_at
+
     # Timestamp of when the project was created
     attr_accessor :created_at
 
@@ -24,6 +29,9 @@ module SamplifyAPIClient
 
     # project job number
     attr_accessor :job_number
+
+    # Timestamp of when the project was launched
+    attr_accessor :launched_at
 
     # Current state of the project: PROVISIONED, LAUNCHED, PAUSED, CLOSED
     attr_accessor :state
@@ -63,9 +71,12 @@ module SamplifyAPIClient
     def self.attribute_map
       {
         :'author' => :'author',
+        :'billing' => :'billing',
+        :'closed_at' => :'closedAt',
         :'created_at' => :'createdAt',
         :'ext_project_id' => :'extProjectId',
         :'job_number' => :'jobNumber',
+        :'launched_at' => :'launchedAt',
         :'state' => :'state',
         :'state_last_updated_at' => :'stateLastUpdatedAt',
         :'title' => :'title',
@@ -77,9 +88,12 @@ module SamplifyAPIClient
     def self.swagger_types
       {
         :'author' => :'Author',
+        :'billing' => :'Billing',
+        :'closed_at' => :'String',
         :'created_at' => :'String',
         :'ext_project_id' => :'String',
         :'job_number' => :'String',
+        :'launched_at' => :'String',
         :'state' => :'String',
         :'state_last_updated_at' => :'String',
         :'title' => :'String',
@@ -99,6 +113,14 @@ module SamplifyAPIClient
         self.author = attributes[:'author']
       end
 
+      if attributes.has_key?(:'billing')
+        self.billing = attributes[:'billing']
+      end
+
+      if attributes.has_key?(:'closedAt')
+        self.closed_at = attributes[:'closedAt']
+      end
+
       if attributes.has_key?(:'createdAt')
         self.created_at = attributes[:'createdAt']
       end
@@ -109,6 +131,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'jobNumber')
         self.job_number = attributes[:'jobNumber']
+      end
+
+      if attributes.has_key?(:'launchedAt')
+        self.launched_at = attributes[:'launchedAt']
       end
 
       if attributes.has_key?(:'state')
@@ -189,9 +215,12 @@ module SamplifyAPIClient
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          billing == o.billing &&
+          closed_at == o.closed_at &&
           created_at == o.created_at &&
           ext_project_id == o.ext_project_id &&
           job_number == o.job_number &&
+          launched_at == o.launched_at &&
           state == o.state &&
           state_last_updated_at == o.state_last_updated_at &&
           title == o.title &&
@@ -207,7 +236,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [author, created_at, ext_project_id, job_number, state, state_last_updated_at, title, updated_at].hash
+      [author, billing, closed_at, created_at, ext_project_id, job_number, launched_at, state, state_last_updated_at, title, updated_at].hash
     end
 
     # Builds the object from hash

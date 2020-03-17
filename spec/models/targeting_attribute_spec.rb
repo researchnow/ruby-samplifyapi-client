@@ -41,6 +41,10 @@ describe 'TargetingAttribute' do
   describe 'test attribute "operator"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["INCLUDE", "EXCLUDE", "include", "exclude"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.operator = value }.not_to raise_error
+      # end
     end
   end
 

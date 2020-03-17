@@ -52,6 +52,9 @@ module SamplifyAPIClient
     # SurveyTestURL Params of the line item.
     attr_accessor :survey_test_url_params
 
+    # Survey testing notes
+    attr_accessor :survey_testing_notes
+
     # Entry link for the user.
     attr_accessor :survey_url
 
@@ -102,6 +105,7 @@ module SamplifyAPIClient
         :'sources' => :'sources',
         :'survey_test_url' => :'surveyTestURL',
         :'survey_test_url_params' => :'surveyTestURLParams',
+        :'survey_testing_notes' => :'surveyTestingNotes',
         :'survey_url' => :'surveyURL',
         :'survey_url_params' => :'surveyURLParams',
         :'targets' => :'targets',
@@ -125,6 +129,7 @@ module SamplifyAPIClient
         :'sources' => :'Array<LineItemSource>',
         :'survey_test_url' => :'String',
         :'survey_test_url_params' => :'Array<URLParam>',
+        :'survey_testing_notes' => :'String',
         :'survey_url' => :'String',
         :'survey_url_params' => :'Array<URLParam>',
         :'targets' => :'Array<Target>',
@@ -196,6 +201,10 @@ module SamplifyAPIClient
         end
       end
 
+      if attributes.has_key?(:'surveyTestingNotes')
+        self.survey_testing_notes = attributes[:'surveyTestingNotes']
+      end
+
       if attributes.has_key?(:'surveyURL')
         self.survey_url = attributes[:'surveyURL']
       end
@@ -231,7 +240,7 @@ module SamplifyAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      delivery_type_validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST'])
+      delivery_type_validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
       return false unless delivery_type_validator.valid?(@delivery_type)
       return false if @ext_line_item_id.nil?
       true
@@ -240,7 +249,7 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] delivery_type Object to be assigned
     def delivery_type=(delivery_type)
-      validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST'])
+      validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
       unless validator.valid?(delivery_type)
         fail ArgumentError, 'invalid value for "delivery_type", must be one of #{validator.allowable_values}.'
       end
@@ -265,6 +274,7 @@ module SamplifyAPIClient
           sources == o.sources &&
           survey_test_url == o.survey_test_url &&
           survey_test_url_params == o.survey_test_url_params &&
+          survey_testing_notes == o.survey_testing_notes &&
           survey_url == o.survey_url &&
           survey_url_params == o.survey_url_params &&
           targets == o.targets &&
@@ -280,7 +290,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_iso_code, days_in_field, delivery_type, dynata_line_item_reference_id, ext_line_item_id, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, sources, survey_test_url, survey_test_url_params, survey_url, survey_url_params, targets, title].hash
+      [country_iso_code, days_in_field, delivery_type, dynata_line_item_reference_id, ext_line_item_id, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, sources, survey_test_url, survey_test_url_params, survey_testing_notes, survey_url, survey_url_params, targets, title].hash
     end
 
     # Builds the object from hash

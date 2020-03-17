@@ -38,6 +38,9 @@ module SamplifyAPIClient
     # Reason for the current state of the line item
     attr_accessor :state_reason
 
+    # Survey testing notes
+    attr_accessor :survey_testing_notes
+
     # A Line Item title
     attr_accessor :title
 
@@ -77,6 +80,7 @@ module SamplifyAPIClient
         :'state' => :'state',
         :'state_last_updated_at' => :'stateLastUpdatedAt',
         :'state_reason' => :'stateReason',
+        :'survey_testing_notes' => :'surveyTestingNotes',
         :'title' => :'title',
         :'updated_at' => :'updatedAt'
       }
@@ -93,6 +97,7 @@ module SamplifyAPIClient
         :'state' => :'String',
         :'state_last_updated_at' => :'String',
         :'state_reason' => :'String',
+        :'survey_testing_notes' => :'String',
         :'title' => :'String',
         :'updated_at' => :'String'
       }
@@ -136,6 +141,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'stateReason')
         self.state_reason = attributes[:'stateReason']
+      end
+
+      if attributes.has_key?(:'surveyTestingNotes')
+        self.survey_testing_notes = attributes[:'surveyTestingNotes']
       end
 
       if attributes.has_key?(:'title')
@@ -230,6 +239,7 @@ module SamplifyAPIClient
           state == o.state &&
           state_last_updated_at == o.state_last_updated_at &&
           state_reason == o.state_reason &&
+          survey_testing_notes == o.survey_testing_notes &&
           title == o.title &&
           updated_at == o.updated_at
     end
@@ -243,7 +253,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_iso_code, created_at, ext_line_item_id, language_iso_code, launched_at, state, state_last_updated_at, state_reason, title, updated_at].hash
+      [country_iso_code, created_at, ext_line_item_id, language_iso_code, launched_at, state, state_last_updated_at, state_reason, survey_testing_notes, title, updated_at].hash
     end
 
     # Builds the object from hash

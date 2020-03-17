@@ -21,6 +21,9 @@ module SamplifyAPIClient
 
     attr_accessor :exclusions
 
+    # Project job number
+    attr_accessor :job_number
+
     # List of line items for the project.
     attr_accessor :line_items
 
@@ -33,16 +36,21 @@ module SamplifyAPIClient
     # Project title
     attr_accessor :title
 
+    # set to true to dedupe using relevant id
+    attr_accessor :use_relevant_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'category' => :'category',
         :'devices' => :'devices',
         :'exclusions' => :'exclusions',
+        :'job_number' => :'jobNumber',
         :'line_items' => :'lineItems',
         :'notification_emails' => :'notificationEmails',
         :'respondent_filters' => :'respondentFilters',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'use_relevant_id' => :'useRelevantId'
       }
     end
 
@@ -52,10 +60,12 @@ module SamplifyAPIClient
         :'category' => :'ProjectCategoryData',
         :'devices' => :'Array<String>',
         :'exclusions' => :'ExclusionData',
+        :'job_number' => :'String',
         :'line_items' => :'Array<UpdateProjectLineItem>',
         :'notification_emails' => :'Array<String>',
         :'respondent_filters' => :'Array<RespondentFilterData>',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'use_relevant_id' => :'BOOLEAN'
       }
     end
 
@@ -81,6 +91,10 @@ module SamplifyAPIClient
         self.exclusions = attributes[:'exclusions']
       end
 
+      if attributes.has_key?(:'jobNumber')
+        self.job_number = attributes[:'jobNumber']
+      end
+
       if attributes.has_key?(:'lineItems')
         if (value = attributes[:'lineItems']).is_a?(Array)
           self.line_items = value
@@ -101,6 +115,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.has_key?(:'useRelevantId')
+        self.use_relevant_id = attributes[:'useRelevantId']
       end
     end
 
@@ -125,10 +143,12 @@ module SamplifyAPIClient
           category == o.category &&
           devices == o.devices &&
           exclusions == o.exclusions &&
+          job_number == o.job_number &&
           line_items == o.line_items &&
           notification_emails == o.notification_emails &&
           respondent_filters == o.respondent_filters &&
-          title == o.title
+          title == o.title &&
+          use_relevant_id == o.use_relevant_id
     end
 
     # @see the `==` method
@@ -140,7 +160,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category, devices, exclusions, line_items, notification_emails, respondent_filters, title].hash
+      [category, devices, exclusions, job_number, line_items, notification_emails, respondent_filters, title, use_relevant_id].hash
     end
 
     # Builds the object from hash

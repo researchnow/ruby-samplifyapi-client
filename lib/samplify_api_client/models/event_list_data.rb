@@ -20,6 +20,8 @@ module SamplifyAPIClient
     # Time event created at
     attr_accessor :created_at
 
+    attr_accessor :details
+
     # Unique event ID
     attr_accessor :event_id
 
@@ -43,6 +45,7 @@ module SamplifyAPIClient
       {
         :'actions' => :'actions',
         :'created_at' => :'createdAt',
+        :'details' => :'details',
         :'event_id' => :'eventId',
         :'event_type' => :'eventType',
         :'ext_line_item_id' => :'extLineItemId',
@@ -57,6 +60,7 @@ module SamplifyAPIClient
       {
         :'actions' => :'Object',
         :'created_at' => :'String',
+        :'details' => :'EventDetails',
         :'event_id' => :'Integer',
         :'event_type' => :'String',
         :'ext_line_item_id' => :'String',
@@ -80,6 +84,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'createdAt')
         self.created_at = attributes[:'createdAt']
+      end
+
+      if attributes.has_key?(:'details')
+        self.details = attributes[:'details']
       end
 
       if attributes.has_key?(:'eventId')
@@ -157,6 +165,7 @@ module SamplifyAPIClient
       self.class == o.class &&
           actions == o.actions &&
           created_at == o.created_at &&
+          details == o.details &&
           event_id == o.event_id &&
           event_type == o.event_type &&
           ext_line_item_id == o.ext_line_item_id &&
@@ -174,7 +183,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [actions, created_at, event_id, event_type, ext_line_item_id, ext_project_id, parent_event_id, resource].hash
+      [actions, created_at, details, event_id, event_type, ext_line_item_id, ext_project_id, parent_event_id, resource].hash
     end
 
     # Builds the object from hash

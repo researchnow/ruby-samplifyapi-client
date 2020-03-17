@@ -32,6 +32,16 @@ describe 'RespondentApi' do
     end
   end
 
+  # unit tests for respondent_dedupe
+  # dedupe respondent
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'respondent_dedupe test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for respondent_entry
   # entry respondent
   # @param [Hash] opts the optional parameters

@@ -47,21 +47,34 @@ module SamplifyAPIClient
     # @return [Array<(Object, Fixnum, Hash)>] an array of 3 elements:
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
-      hh = @default_headers.merge(opts[:header_params] || {})
-      hh[:params] = opts[:query_params] if http_method.downcase == :get
-      update_params_for_auth! hh, (opts[:query_params] || {}), opts[:auth_names]
-      url = URI.encode(@config.base_url + path)
-      params = {method: http_method, url: url, headers: hh, payload: (http_method.downcase == :get ? opts[:query_params] : opts[:body]), timeout: 360}
-      response = RestClient::Request.execute(params)
-      data = deserialize(response, opts[:return_type])
+      request = build_request(http_method, path, opts)
+      response = request.run
+
+      if @config.debugging
+        @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
+      end
+
+      unless response.success?
+        if response.timed_out?
+          fail ApiError.new('Connection timed out')
+        elsif response.code == 0
+          # Errors from libcurl will be made visible here
+          fail ApiError.new(:code => 0,
+                            :message => response.return_message)
+        else
+          fail ApiError.new(:code => response.code,
+                            :response_headers => response.headers,
+                            :response_body => response.body),
+               response.status_message
+        end
+      end
+
+      if opts[:return_type]
+        data = deserialize(response, opts[:return_type])
+      else
+        data = nil
+      end
       return data, response.code, response.headers
-    rescue RestClient::ExceptionWithResponse => ex
-      fail ApiError.new(:code => ex.response.code,
-                        :response_headers => ex.response.headers,
-                        :response_body => ex.response.body)
-    rescue StandardError => ex
-      fail ApiError.new(:code => 500,
-                        :message => ex.message)
     end
 
     # Builds the HTTP request

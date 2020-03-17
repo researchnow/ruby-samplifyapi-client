@@ -35,12 +35,14 @@ describe 'SampleSourcesApi' do
   # unit tests for sample_sources_list
   # list sampleSources
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :id Only return sources with the given id
+  # @option opts [String] :country_iso_code Only return sources applicable for the given country code
+  # @option opts [String] :delivery_system Only return source with the given source
+  # @option opts [String] :id Only return sources with the given id
+  # @option opts [String] :language_iso_code Only return sources applicable for the given language code
   # @option opts [Integer] :limit Maximum number of sources to return
   # @option opts [String] :name Only return sources with the given name
   # @option opts [Integer] :offset The first zero-based offset source to return
   # @option opts [Array<String>] :sort Sort the sources by the given key(s)
-  # @option opts [String] :source Only return source with the given source
   # @option opts [String] :survey_topic Only return sources with the given surveyTopic
   # @return [SampleSources]
   describe 'sample_sources_list test' do

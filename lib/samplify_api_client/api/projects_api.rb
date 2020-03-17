@@ -233,6 +233,133 @@ module SamplifyAPIClient
       end
       return data, status_code, headers
     end
+    # getDetailedReport projects
+    # @param ext_project_id 
+    # @param [Hash] opts the optional parameters
+    # @return [DetailedProjectReport]
+    def projects_get_detailed_report(ext_project_id, opts = {})
+      data, _status_code, _headers = projects_get_detailed_report_with_http_info(ext_project_id, opts)
+      data
+    end
+
+    # getDetailedReport projects
+    # @param ext_project_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DetailedProjectReport, Fixnum, Hash)>] DetailedProjectReport data, response status code and response headers
+    def projects_get_detailed_report_with_http_info(ext_project_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.projects_get_detailed_report ...'
+      end
+      # verify the required parameter 'ext_project_id' is set
+      if @api_client.config.client_side_validation && ext_project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ext_project_id' when calling ProjectsApi.projects_get_detailed_report"
+      end
+      # resource path
+      local_var_path = '/sample/v1/projects/{extProjectId}/detailedReport'.sub('{' + 'extProjectId' + '}', ext_project_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.projects.detailedreport+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/xml', 'application/gob', 'application/x-gob'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DetailedProjectReport')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#projects_get_detailed_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # getInvoiceSummary projects
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :end_date Only return invoice summary of projects closed before this date
+    # @option opts [String] :ext_project_id Only return invoice summary of projects with the given external project ids. Multiple projectIds can be given as comma separated values
+    # @option opts [Integer] :limit Maximum number of summaries to return (default to 10)
+    # @option opts [Integer] :offset The first zero-based offset summary to return (default to 0)
+    # @option opts [Array<String>] :sort Sort the summaries by the given key(s)
+    # @option opts [String] :start_date Only return invoice summary of projects closed after this date
+    # @return [nil]
+    def projects_get_invoice_summary(opts = {})
+      projects_get_invoice_summary_with_http_info(opts)
+      nil
+    end
+
+    # getInvoiceSummary projects
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :end_date Only return invoice summary of projects closed before this date
+    # @option opts [String] :ext_project_id Only return invoice summary of projects with the given external project ids. Multiple projectIds can be given as comma separated values
+    # @option opts [Integer] :limit Maximum number of summaries to return
+    # @option opts [Integer] :offset The first zero-based offset summary to return
+    # @option opts [Array<String>] :sort Sort the summaries by the given key(s)
+    # @option opts [String] :start_date Only return invoice summary of projects closed after this date
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def projects_get_invoice_summary_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.projects_get_invoice_summary ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ProjectsApi.projects_get_invoice_summary, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ProjectsApi.projects_get_invoice_summary, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ProjectsApi.projects_get_invoice_summary, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/sample/v1/projects/invoices/summary'
+
+      # query parameters
+      query_params = {}
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'extProjectId'] = opts[:'ext_project_id'] if !opts[:'ext_project_id'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :multi) if !opts[:'sort'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.app.error+json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/xml', 'application/gob', 'application/x-gob'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#projects_get_invoice_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # getReport projects
     # @param ext_project_id 
     # @param [Hash] opts the optional parameters
@@ -449,6 +576,7 @@ module SamplifyAPIClient
     end
     # list projects
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :billing_date return projects with billing date matching the given date range
     # @option opts [String] :created_at return projects with createdAt start date
     # @option opts [String] :ext_project_id Only return project with the given external project id
     # @option opts [String] :job_number Only return projects with the given job number
@@ -466,6 +594,7 @@ module SamplifyAPIClient
 
     # list projects
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :billing_date return projects with billing date matching the given date range
     # @option opts [String] :created_at return projects with createdAt start date
     # @option opts [String] :ext_project_id Only return project with the given external project id
     # @option opts [String] :job_number Only return projects with the given job number
@@ -500,6 +629,7 @@ module SamplifyAPIClient
 
       # query parameters
       query_params = {}
+      query_params[:'billingDate'] = opts[:'billing_date'] if !opts[:'billing_date'].nil?
       query_params[:'createdAt'] = opts[:'created_at'] if !opts[:'created_at'].nil?
       query_params[:'extProjectId'] = opts[:'ext_project_id'] if !opts[:'ext_project_id'].nil?
       query_params[:'jobNumber'] = opts[:'job_number'] if !opts[:'job_number'].nil?

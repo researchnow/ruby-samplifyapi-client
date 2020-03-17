@@ -68,6 +68,18 @@ describe 'EventsApi' do
     end
   end
 
+  # unit tests for events_invoiceproject
+  # invoiceproject events
+  # invoiceproject event.
+  # @param payload 
+  # @param [Hash] opts the optional parameters
+  # @return [InvoiceProject]
+  describe 'events_invoiceproject test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for events_list
   # list events
   # List events.

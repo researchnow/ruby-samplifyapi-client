@@ -39,6 +39,9 @@ module SamplifyAPIClient
     # Project title
     attr_accessor :title
 
+    # set to true to dedupe using relevant id
+    attr_accessor :use_relevant_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -50,7 +53,8 @@ module SamplifyAPIClient
         :'line_items' => :'lineItems',
         :'notification_emails' => :'notificationEmails',
         :'respondent_filters' => :'respondentFilters',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'use_relevant_id' => :'useRelevantId'
       }
     end
 
@@ -65,7 +69,8 @@ module SamplifyAPIClient
         :'line_items' => :'Array<LineItemData>',
         :'notification_emails' => :'Array<String>',
         :'respondent_filters' => :'Array<RespondentFilterData>',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'use_relevant_id' => :'BOOLEAN'
       }
     end
 
@@ -120,6 +125,10 @@ module SamplifyAPIClient
       if attributes.has_key?(:'title')
         self.title = attributes[:'title']
       end
+
+      if attributes.has_key?(:'useRelevantId')
+        self.use_relevant_id = attributes[:'useRelevantId']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -138,10 +147,6 @@ module SamplifyAPIClient
         invalid_properties.push('invalid value for "line_items", line_items cannot be nil.')
       end
 
-      if @notification_emails.nil?
-        invalid_properties.push('invalid value for "notification_emails", notification_emails cannot be nil.')
-      end
-
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
@@ -155,7 +160,6 @@ module SamplifyAPIClient
       return false if @category.nil?
       return false if @ext_project_id.nil?
       return false if @line_items.nil?
-      return false if @notification_emails.nil?
       return false if @title.nil?
       true
     end
@@ -173,7 +177,8 @@ module SamplifyAPIClient
           line_items == o.line_items &&
           notification_emails == o.notification_emails &&
           respondent_filters == o.respondent_filters &&
-          title == o.title
+          title == o.title &&
+          use_relevant_id == o.use_relevant_id
     end
 
     # @see the `==` method
@@ -185,7 +190,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category, devices, exclusions, ext_project_id, job_number, line_items, notification_emails, respondent_filters, title].hash
+      [category, devices, exclusions, ext_project_id, job_number, line_items, notification_emails, respondent_filters, title, use_relevant_id].hash
     end
 
     # Builds the object from hash

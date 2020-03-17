@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **state** | **String** | The current state of the line item: PROVISIONED, AWAITING_APPROVAL, LAUNCHED, PAUSED, CLOSED, INVOICED | 
 **state_last_updated_at** | **String** | Timestamp of when the line item last changed its state | 
 **state_reason** | **String** | Reason for the current state of the line item | 
+**survey_testing_notes** | **String** | Survey testing notes | [optional] 
 **title** | **String** | A Line Item title | 
 **updated_at** | **String** | Timestamp of when the line item was updated | 
 

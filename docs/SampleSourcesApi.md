@@ -27,12 +27,14 @@ end
 api_instance = SamplifyAPIClient::SampleSourcesApi.new
 
 opts = { 
-  id: 56, # Integer | Only return sources with the given id
+  country_iso_code: 'country_iso_code_example', # String | Only return sources applicable for the given country code
+  delivery_system: 'delivery_system_example', # String | Only return source with the given source
+  id: 'id_example', # String | Only return sources with the given id
+  language_iso_code: 'language_iso_code_example', # String | Only return sources applicable for the given language code
   limit: 10, # Integer | Maximum number of sources to return
   name: 'name_example', # String | Only return sources with the given name
   offset: 0, # Integer | The first zero-based offset source to return
   sort: ['sort_example'], # Array<String> | Sort the sources by the given key(s)
-  source: 'source_example', # String | Only return source with the given source
   survey_topic: 'survey_topic_example' # String | Only return sources with the given surveyTopic
 }
 
@@ -49,12 +51,14 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| Only return sources with the given id | [optional] 
+ **country_iso_code** | **String**| Only return sources applicable for the given country code | [optional] 
+ **delivery_system** | **String**| Only return source with the given source | [optional] 
+ **id** | **String**| Only return sources with the given id | [optional] 
+ **language_iso_code** | **String**| Only return sources applicable for the given language code | [optional] 
  **limit** | **Integer**| Maximum number of sources to return | [optional] [default to 10]
  **name** | **String**| Only return sources with the given name | [optional] 
  **offset** | **Integer**| The first zero-based offset source to return | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| Sort the sources by the given key(s) | [optional] 
- **source** | **String**| Only return source with the given source | [optional] 
  **survey_topic** | **String**| Only return sources with the given surveyTopic | [optional] 
 
 ### Return type

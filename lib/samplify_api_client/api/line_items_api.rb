@@ -193,6 +193,64 @@ module SamplifyAPIClient
       end
       return data, status_code, headers
     end
+    # getDetailedLineItemReport lineItems
+    # @param ext_line_item_id 
+    # @param ext_project_id 
+    # @param [Hash] opts the optional parameters
+    # @return [DetailedLineItemReport]
+    def line_items_get_detailed_line_item_report(ext_line_item_id, ext_project_id, opts = {})
+      data, _status_code, _headers = line_items_get_detailed_line_item_report_with_http_info(ext_line_item_id, ext_project_id, opts)
+      data
+    end
+
+    # getDetailedLineItemReport lineItems
+    # @param ext_line_item_id 
+    # @param ext_project_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DetailedLineItemReport, Fixnum, Hash)>] DetailedLineItemReport data, response status code and response headers
+    def line_items_get_detailed_line_item_report_with_http_info(ext_line_item_id, ext_project_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LineItemsApi.line_items_get_detailed_line_item_report ...'
+      end
+      # verify the required parameter 'ext_line_item_id' is set
+      if @api_client.config.client_side_validation && ext_line_item_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ext_line_item_id' when calling LineItemsApi.line_items_get_detailed_line_item_report"
+      end
+      # verify the required parameter 'ext_project_id' is set
+      if @api_client.config.client_side_validation && ext_project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ext_project_id' when calling LineItemsApi.line_items_get_detailed_line_item_report"
+      end
+      # resource path
+      local_var_path = '/sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/detailedReport'.sub('{' + 'extLineItemId' + '}', ext_line_item_id.to_s).sub('{' + 'extProjectId' + '}', ext_project_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.getdetailedlineitemreport+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/xml', 'application/gob', 'application/x-gob'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DetailedLineItemReport')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LineItemsApi#line_items_get_detailed_line_item_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # launch lineItems
     # @param ext_line_item_id 
     # @param ext_project_id 
@@ -259,6 +317,7 @@ module SamplifyAPIClient
     # @option opts [String] :language_iso_code Only return line items with the given language ISO Code
     # @option opts [Integer] :limit Maximum number of line items to return (default to 10)
     # @option opts [Integer] :offset The first zero-based offset line item to return (default to 0)
+    # @option opts [String] :qa_state Only return lineitems with the given QA state
     # @option opts [Array<String>] :sort Sort the line items by the given key(s)
     # @option opts [String] :state Only return lineitems with the given state
     # @option opts [String] :state_reason Only return line items with the given state reason
@@ -277,6 +336,7 @@ module SamplifyAPIClient
     # @option opts [String] :language_iso_code Only return line items with the given language ISO Code
     # @option opts [Integer] :limit Maximum number of line items to return
     # @option opts [Integer] :offset The first zero-based offset line item to return
+    # @option opts [String] :qa_state Only return lineitems with the given QA state
     # @option opts [Array<String>] :sort Sort the line items by the given key(s)
     # @option opts [String] :state Only return lineitems with the given state
     # @option opts [String] :state_reason Only return line items with the given state reason
@@ -312,6 +372,7 @@ module SamplifyAPIClient
       query_params[:'languageISOCode'] = opts[:'language_iso_code'] if !opts[:'language_iso_code'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'qaState'] = opts[:'qa_state'] if !opts[:'qa_state'].nil?
       query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :multi) if !opts[:'sort'].nil?
       query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
       query_params[:'stateReason'] = opts[:'state_reason'] if !opts[:'state_reason'].nil?

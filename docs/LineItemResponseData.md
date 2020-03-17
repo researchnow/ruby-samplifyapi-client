@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **state_reason** | **String** | state reason | [optional] 
 **survey_test_url** | **String** | Entry link for the user. | [optional] 
 **survey_test_url_params** | [**Array&lt;URLParam&gt;**](URLParam.md) | SurveyTestURL Params of the line item. | [optional] 
+**survey_testing_notes** | **String** | survey testing notes | [optional] 
 **survey_url** | **String** | Entry link for the user. | [optional] 
 **survey_url_params** | [**Array&lt;URLParam&gt;**](URLParam.md) | SurveyURL Params of the line item. | [optional] 
 **targets** | [**Array&lt;Target&gt;**](Target.md) | Data of completes/starts required for the line item | [optional] 

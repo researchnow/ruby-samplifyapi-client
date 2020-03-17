@@ -17,17 +17,22 @@ module SamplifyAPIClient
     # id of the source where is the sample coming from
     attr_accessor :id
 
+    # name of the source where is the sample coming from
+    attr_accessor :name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'id' => :'id',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer'
+        :'id' => :'Integer',
+        :'name' => :'String'
       }
     end
 
@@ -41,6 +46,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -62,7 +71,8 @@ module SamplifyAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          id == o.id &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -74,7 +84,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id].hash
+      [id, name].hash
     end
 
     # Builds the object from hash

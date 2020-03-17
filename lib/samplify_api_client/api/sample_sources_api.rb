@@ -21,12 +21,14 @@ module SamplifyAPIClient
     end
     # list sampleSources
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :id Only return sources with the given id
+    # @option opts [String] :country_iso_code Only return sources applicable for the given country code
+    # @option opts [String] :delivery_system Only return source with the given source
+    # @option opts [String] :id Only return sources with the given id
+    # @option opts [String] :language_iso_code Only return sources applicable for the given language code
     # @option opts [Integer] :limit Maximum number of sources to return (default to 10)
     # @option opts [String] :name Only return sources with the given name
     # @option opts [Integer] :offset The first zero-based offset source to return (default to 0)
     # @option opts [Array<String>] :sort Sort the sources by the given key(s)
-    # @option opts [String] :source Only return source with the given source
     # @option opts [String] :survey_topic Only return sources with the given surveyTopic
     # @return [SampleSources]
     def sample_sources_list(opts = {})
@@ -36,12 +38,14 @@ module SamplifyAPIClient
 
     # list sampleSources
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :id Only return sources with the given id
+    # @option opts [String] :country_iso_code Only return sources applicable for the given country code
+    # @option opts [String] :delivery_system Only return source with the given source
+    # @option opts [String] :id Only return sources with the given id
+    # @option opts [String] :language_iso_code Only return sources applicable for the given language code
     # @option opts [Integer] :limit Maximum number of sources to return
     # @option opts [String] :name Only return sources with the given name
     # @option opts [Integer] :offset The first zero-based offset source to return
     # @option opts [Array<String>] :sort Sort the sources by the given key(s)
-    # @option opts [String] :source Only return source with the given source
     # @option opts [String] :survey_topic Only return sources with the given surveyTopic
     # @return [Array<(SampleSources, Fixnum, Hash)>] SampleSources data, response status code and response headers
     def sample_sources_list_with_http_info(opts = {})
@@ -65,12 +69,14 @@ module SamplifyAPIClient
 
       # query parameters
       query_params = {}
+      query_params[:'countryISOCode'] = opts[:'country_iso_code'] if !opts[:'country_iso_code'].nil?
+      query_params[:'deliverySystem'] = opts[:'delivery_system'] if !opts[:'delivery_system'].nil?
       query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'languageISOCode'] = opts[:'language_iso_code'] if !opts[:'language_iso_code'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :multi) if !opts[:'sort'].nil?
-      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
       query_params[:'surveyTopic'] = opts[:'survey_topic'] if !opts[:'survey_topic'].nil?
 
       # header parameters

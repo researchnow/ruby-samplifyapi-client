@@ -17,7 +17,7 @@ module SamplifyAPIClient
     # Timestamp of when the line item was created
     attr_accessor :created_at
 
-    # Unique line item Id
+    # Unique line item ID
     attr_accessor :ext_line_item_id
 
     # Timestamp of when the line item launched on RN SSI panelists

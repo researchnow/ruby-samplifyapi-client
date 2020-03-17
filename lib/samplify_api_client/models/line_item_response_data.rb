@@ -69,6 +69,9 @@ module SamplifyAPIClient
     # SurveyTestURL Params of the line item.
     attr_accessor :survey_test_url_params
 
+    # survey testing notes
+    attr_accessor :survey_testing_notes
+
     # Entry link for the user.
     attr_accessor :survey_url
 
@@ -128,6 +131,7 @@ module SamplifyAPIClient
         :'state_reason' => :'stateReason',
         :'survey_test_url' => :'surveyTestURL',
         :'survey_test_url_params' => :'surveyTestURLParams',
+        :'survey_testing_notes' => :'surveyTestingNotes',
         :'survey_url' => :'surveyURL',
         :'survey_url_params' => :'surveyURLParams',
         :'targets' => :'targets',
@@ -158,6 +162,7 @@ module SamplifyAPIClient
         :'state_reason' => :'String',
         :'survey_test_url' => :'String',
         :'survey_test_url_params' => :'Array<URLParam>',
+        :'survey_testing_notes' => :'String',
         :'survey_url' => :'String',
         :'survey_url_params' => :'Array<URLParam>',
         :'targets' => :'Array<Target>',
@@ -254,6 +259,10 @@ module SamplifyAPIClient
         end
       end
 
+      if attributes.has_key?(:'surveyTestingNotes')
+        self.survey_testing_notes = attributes[:'surveyTestingNotes']
+      end
+
       if attributes.has_key?(:'surveyURL')
         self.survey_url = attributes[:'surveyURL']
       end
@@ -328,6 +337,7 @@ module SamplifyAPIClient
           state_reason == o.state_reason &&
           survey_test_url == o.survey_test_url &&
           survey_test_url_params == o.survey_test_url_params &&
+          survey_testing_notes == o.survey_testing_notes &&
           survey_url == o.survey_url &&
           survey_url_params == o.survey_url_params &&
           targets == o.targets &&
@@ -344,7 +354,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_iso_code, created_at, days_in_field, delivery_type, dynata_line_item_reference_id, end_links, ext_line_item_id, indicative_incidence, language_iso_code, launched_at, length_of_interview, quota_plan, required_completes, sources, state, state_last_updated_at, state_reason, survey_test_url, survey_test_url_params, survey_url, survey_url_params, targets, title, updated_at].hash
+      [country_iso_code, created_at, days_in_field, delivery_type, dynata_line_item_reference_id, end_links, ext_line_item_id, indicative_incidence, language_iso_code, launched_at, length_of_interview, quota_plan, required_completes, sources, state, state_last_updated_at, state_reason, survey_test_url, survey_test_url_params, survey_testing_notes, survey_url, survey_url_params, targets, title, updated_at].hash
     end
 
     # Builds the object from hash
