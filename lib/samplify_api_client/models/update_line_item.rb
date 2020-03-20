@@ -20,7 +20,7 @@ module SamplifyAPIClient
     # Duration of the project in days.
     attr_accessor :days_in_field
 
-    # Delivery type: SLOW, BALANCED, FAST, or BURST.
+    # Delivery type: SLOW, BALANCED, FAST, BURST OR UNLIMITED.
     attr_accessor :delivery_type
 
     # Sales Order Detail ID of the line item.

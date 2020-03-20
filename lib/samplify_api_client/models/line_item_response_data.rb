@@ -23,7 +23,7 @@ module SamplifyAPIClient
     # Duration of the project in days.
     attr_accessor :days_in_field
 
-    # Delivery type: SLOW, BALANCED, FAST or BURST.
+    # Delivery type: SLOW, BALANCED, FAST, BURST OR UNLIMITED.
     attr_accessor :delivery_type
 
     # Sales Order Detail ID of the line item.
@@ -298,7 +298,7 @@ module SamplifyAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      delivery_type_validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST'])
+      delivery_type_validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
       return false unless delivery_type_validator.valid?(@delivery_type)
       true
     end
@@ -306,7 +306,7 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] delivery_type Object to be assigned
     def delivery_type=(delivery_type)
-      validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST'])
+      validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
       unless validator.valid?(delivery_type)
         fail ArgumentError, 'invalid value for "delivery_type", must be one of #{validator.allowable_values}.'
       end
