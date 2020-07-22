@@ -53,7 +53,7 @@ module SamplifyAPIClient
       url = URI.encode(@config.base_url + path)
       params = {method: http_method, url: url, headers: hh, payload: (http_method.downcase == :get ? opts[:query_params] : opts[:body]), timeout: 360}
       response = RestClient::Request.execute(params)
-      data = deserialize(response, opts[:return_type])
+        data = deserialize(response, opts[:return_type])
       return data, response.code, response.headers
     rescue RestClient::ExceptionWithResponse => ex
       fail ApiError.new(:code => ex.response.code,

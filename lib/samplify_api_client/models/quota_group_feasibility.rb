@@ -181,5 +181,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

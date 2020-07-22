@@ -1,6 +1,6 @@
 # SamplifyAPIClient::SampleSourcesApi
 
-All URIs are relative to *https://api.dev.pe.dynata.com*
+All URIs are relative to *https://api.uat.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

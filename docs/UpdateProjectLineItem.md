@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **delivery_type** | **String** | Delivery type: SLOW, BALANCED, FAST or BURST. | [optional] 
 **dynata_line_item_reference_id** | **String** | Sales Order Detail ID of the line item. | [optional] 
 **ext_line_item_id** | **String** | Unique line item Id | 
+**field_schedule** | [**FieldSchedule**](FieldSchedule.md) |  | [optional] 
 **indicative_incidence** | **Float** | Expected incidence of the survey | [optional] 
 **language_iso_code** | **String** | ISO language code | [optional] 
 **length_of_interview** | **Integer** | expected duration of the survey in minutes | [optional] 

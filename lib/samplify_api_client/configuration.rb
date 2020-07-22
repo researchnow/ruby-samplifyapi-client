@@ -129,7 +129,7 @@ module SamplifyAPIClient
 
     def initialize
       @scheme = 'https'
-      @host = 'api.dev.pe.dynata.com'
+      @host = 'api.uat.pe.dynata.com'
       @base_path = ''
       @api_key = {}
       @api_key_prefix = {}

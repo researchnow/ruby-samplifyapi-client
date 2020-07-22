@@ -23,6 +23,9 @@ module SamplifyAPIClient
     # SurveyTestURL Params of the line item.
     attr_accessor :survey_test_url_params
 
+    # Survey testing notes
+    attr_accessor :survey_testing_notes
+
     # Survey URL to send panelist into
     attr_accessor :survey_url
 
@@ -35,6 +38,7 @@ module SamplifyAPIClient
         :'ext_line_item_id' => :'extLineItemId',
         :'survey_test_url' => :'surveyTestURL',
         :'survey_test_url_params' => :'surveyTestURLParams',
+        :'survey_testing_notes' => :'surveyTestingNotes',
         :'survey_url' => :'surveyURL',
         :'survey_url_params' => :'surveyURLParams'
       }
@@ -46,6 +50,7 @@ module SamplifyAPIClient
         :'ext_line_item_id' => :'String',
         :'survey_test_url' => :'String',
         :'survey_test_url_params' => :'Array<URLParam>',
+        :'survey_testing_notes' => :'String',
         :'survey_url' => :'String',
         :'survey_url_params' => :'Array<URLParam>'
       }
@@ -71,6 +76,10 @@ module SamplifyAPIClient
         if (value = attributes[:'surveyTestURLParams']).is_a?(Array)
           self.survey_test_url_params = value
         end
+      end
+
+      if attributes.has_key?(:'surveyTestingNotes')
+        self.survey_testing_notes = attributes[:'surveyTestingNotes']
       end
 
       if attributes.has_key?(:'surveyURL')
@@ -120,6 +129,7 @@ module SamplifyAPIClient
           ext_line_item_id == o.ext_line_item_id &&
           survey_test_url == o.survey_test_url &&
           survey_test_url_params == o.survey_test_url_params &&
+          survey_testing_notes == o.survey_testing_notes &&
           survey_url == o.survey_url &&
           survey_url_params == o.survey_url_params
     end
@@ -133,7 +143,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [ext_line_item_id, survey_test_url, survey_test_url_params, survey_url, survey_url_params].hash
+      [ext_line_item_id, survey_test_url, survey_test_url_params, survey_testing_notes, survey_url, survey_url_params].hash
     end
 
     # Builds the object from hash
@@ -239,5 +249,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

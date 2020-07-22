@@ -1,6 +1,6 @@
 # SamplifyAPIClient::AttributesApi
 
-All URIs are relative to *https://api.dev.pe.dynata.com*
+All URIs are relative to *https://api.uat.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,6 +33,7 @@ language_iso_code = 'language_iso_code_example' # String | Language ISO code
 opts = { 
   category: 'category_example', # String | Only return attributes with the given category
   id: 'id_example', # String | Only return attributes with the given id
+  is_allowed_in_survey_appends: true, # BOOLEAN | Only return attributes with the given isAllowedInSurveyAppends value
   limit: 10, # Integer | Maximum number of attributes to return
   name: 'name_example', # String | Only return attributes with the given name
   offset: 0, # Integer | The first zero-based offset attribute to return
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **language_iso_code** | **String**| Language ISO code | 
  **category** | **String**| Only return attributes with the given category | [optional] 
  **id** | **String**| Only return attributes with the given id | [optional] 
+ **is_allowed_in_survey_appends** | **BOOLEAN**| Only return attributes with the given isAllowedInSurveyAppends value | [optional] 
  **limit** | **Integer**| Maximum number of attributes to return | [optional] [default to 10]
  **name** | **String**| Only return attributes with the given name | [optional] 
  **offset** | **Integer**| The first zero-based offset attribute to return | [optional] [default to 0]

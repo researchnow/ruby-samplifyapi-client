@@ -25,6 +25,7 @@ module SamplifyAPIClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :category Only return attributes with the given category
     # @option opts [String] :id Only return attributes with the given id
+    # @option opts [BOOLEAN] :is_allowed_in_survey_appends Only return attributes with the given isAllowedInSurveyAppends value
     # @option opts [Integer] :limit Maximum number of attributes to return (default to 10)
     # @option opts [String] :name Only return attributes with the given name
     # @option opts [Integer] :offset The first zero-based offset attribute to return (default to 0)
@@ -46,6 +47,7 @@ module SamplifyAPIClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :category Only return attributes with the given category
     # @option opts [String] :id Only return attributes with the given id
+    # @option opts [BOOLEAN] :is_allowed_in_survey_appends Only return attributes with the given isAllowedInSurveyAppends value
     # @option opts [Integer] :limit Maximum number of attributes to return
     # @option opts [String] :name Only return attributes with the given name
     # @option opts [Integer] :offset The first zero-based offset attribute to return
@@ -87,6 +89,7 @@ module SamplifyAPIClient
       query_params = {}
       query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
       query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'isAllowedInSurveyAppends'] = opts[:'is_allowed_in_survey_appends'] if !opts[:'is_allowed_in_survey_appends'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?

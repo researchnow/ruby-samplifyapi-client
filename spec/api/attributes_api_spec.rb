@@ -39,6 +39,7 @@ describe 'AttributesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :category Only return attributes with the given category
   # @option opts [String] :id Only return attributes with the given id
+  # @option opts [BOOLEAN] :is_allowed_in_survey_appends Only return attributes with the given isAllowedInSurveyAppends value
   # @option opts [Integer] :limit Maximum number of attributes to return
   # @option opts [String] :name Only return attributes with the given name
   # @option opts [Integer] :offset The first zero-based offset attribute to return

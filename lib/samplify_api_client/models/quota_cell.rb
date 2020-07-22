@@ -26,13 +26,39 @@ module SamplifyAPIClient
     # nodes in the cell.
     attr_accessor :quota_nodes
 
+    # status of the quota cell
+    attr_accessor :status
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'count' => :'count',
         :'perc' => :'perc',
         :'quota_cell_id' => :'quotaCellId',
-        :'quota_nodes' => :'quotaNodes'
+        :'quota_nodes' => :'quotaNodes',
+        :'status' => :'status'
       }
     end
 
@@ -42,7 +68,8 @@ module SamplifyAPIClient
         :'count' => :'Integer',
         :'perc' => :'Float',
         :'quota_cell_id' => :'String',
-        :'quota_nodes' => :'Array<TargetingAttribute>'
+        :'quota_nodes' => :'Array<TargetingAttribute>',
+        :'status' => :'String'
       }
     end
 
@@ -71,6 +98,10 @@ module SamplifyAPIClient
           self.quota_nodes = value
         end
       end
+
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -83,7 +114,19 @@ module SamplifyAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      status_validator = EnumAttributeValidator.new('String', ['LAUNCHED', 'PAUSED'])
+      return false unless status_validator.valid?(@status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ['LAUNCHED', 'PAUSED'])
+      unless validator.valid?(status)
+        fail ArgumentError, 'invalid value for "status", must be one of #{validator.allowable_values}.'
+      end
+      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -94,7 +137,8 @@ module SamplifyAPIClient
           count == o.count &&
           perc == o.perc &&
           quota_cell_id == o.quota_cell_id &&
-          quota_nodes == o.quota_nodes
+          quota_nodes == o.quota_nodes &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -106,7 +150,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [count, perc, quota_cell_id, quota_nodes].hash
+      [count, perc, quota_cell_id, quota_nodes, status].hash
     end
 
     # Builds the object from hash
@@ -212,5 +256,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

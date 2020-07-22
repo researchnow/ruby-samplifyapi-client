@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **String** | Unique attribute ID | 
 **is_allowed_in_filters** | **BOOLEAN** | Is allowed in filters | 
 **is_allowed_in_quotas** | **BOOLEAN** | Is allowed in quotas | 
+**is_allowed_in_survey_appends** | **BOOLEAN** | Is allowed in survey appends | 
 **localized_text** | **String** | Localized attribute text | 
 **name** | **String** | Attribute name | 
 **options** | [**Array&lt;AttributeOption&gt;**](AttributeOption.md) |  | [optional] 

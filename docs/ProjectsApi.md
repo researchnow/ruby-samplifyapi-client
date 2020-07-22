@@ -1,6 +1,6 @@
 # SamplifyAPIClient::ProjectsApi
 
-All URIs are relative to *https://api.dev.pe.dynata.com*
+All URIs are relative to *https://api.uat.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -575,6 +575,8 @@ api_instance = SamplifyAPIClient::ProjectsApi.new
 
 opts = { 
   billing_date: 'billing_date_example', # String | return projects with billing date matching the given date range
+  billing_id: 'billing_id_example', # String | return projects with billing ID matching the given billing ID
+  billing_type: 'billing_type_example', # String | return projects with billing type matching the given billing type
   created_at: 'created_at_example', # String | return projects with createdAt start date
   ext_project_id: 'ext_project_id_example', # String | Only return project with the given external project id
   job_number: 'job_number_example', # String | Only return projects with the given job number
@@ -600,6 +602,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **billing_date** | **String**| return projects with billing date matching the given date range | [optional] 
+ **billing_id** | **String**| return projects with billing ID matching the given billing ID | [optional] 
+ **billing_type** | **String**| return projects with billing type matching the given billing type | [optional] 
  **created_at** | **String**| return projects with createdAt start date | [optional] 
  **ext_project_id** | **String**| Only return project with the given external project id | [optional] 
  **job_number** | **String**| Only return projects with the given job number | [optional] 

@@ -34,6 +34,9 @@ module SamplifyAPIClient
     # Is allowed in quotas
     attr_accessor :is_allowed_in_quotas
 
+    # Is allowed in survey appends
+    attr_accessor :is_allowed_in_survey_appends
+
     # Localized attribute text
     attr_accessor :localized_text
 
@@ -86,6 +89,7 @@ module SamplifyAPIClient
         :'id' => :'id',
         :'is_allowed_in_filters' => :'isAllowedInFilters',
         :'is_allowed_in_quotas' => :'isAllowedInQuotas',
+        :'is_allowed_in_survey_appends' => :'isAllowedInSurveyAppends',
         :'localized_text' => :'localizedText',
         :'name' => :'name',
         :'options' => :'options',
@@ -106,6 +110,7 @@ module SamplifyAPIClient
         :'id' => :'String',
         :'is_allowed_in_filters' => :'BOOLEAN',
         :'is_allowed_in_quotas' => :'BOOLEAN',
+        :'is_allowed_in_survey_appends' => :'BOOLEAN',
         :'localized_text' => :'String',
         :'name' => :'String',
         :'options' => :'Array<AttributeOption>',
@@ -152,6 +157,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'isAllowedInQuotas')
         self.is_allowed_in_quotas = attributes[:'isAllowedInQuotas']
+      end
+
+      if attributes.has_key?(:'isAllowedInSurveyAppends')
+        self.is_allowed_in_survey_appends = attributes[:'isAllowedInSurveyAppends']
       end
 
       if attributes.has_key?(:'localizedText')
@@ -201,6 +210,10 @@ module SamplifyAPIClient
         invalid_properties.push('invalid value for "is_allowed_in_quotas", is_allowed_in_quotas cannot be nil.')
       end
 
+      if @is_allowed_in_survey_appends.nil?
+        invalid_properties.push('invalid value for "is_allowed_in_survey_appends", is_allowed_in_survey_appends cannot be nil.')
+      end
+
       if @localized_text.nil?
         invalid_properties.push('invalid value for "localized_text", localized_text cannot be nil.')
       end
@@ -230,6 +243,7 @@ module SamplifyAPIClient
       return false if @id.nil?
       return false if @is_allowed_in_filters.nil?
       return false if @is_allowed_in_quotas.nil?
+      return false if @is_allowed_in_survey_appends.nil?
       return false if @localized_text.nil?
       return false if @name.nil?
       return false if @state.nil?
@@ -274,6 +288,7 @@ module SamplifyAPIClient
           id == o.id &&
           is_allowed_in_filters == o.is_allowed_in_filters &&
           is_allowed_in_quotas == o.is_allowed_in_quotas &&
+          is_allowed_in_survey_appends == o.is_allowed_in_survey_appends &&
           localized_text == o.localized_text &&
           name == o.name &&
           options == o.options &&
@@ -292,7 +307,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category, exclusions, extras, format, id, is_allowed_in_filters, is_allowed_in_quotas, localized_text, name, options, state, text, tier, type].hash
+      [category, exclusions, extras, format, id, is_allowed_in_filters, is_allowed_in_quotas, is_allowed_in_survey_appends, localized_text, name, options, state, text, tier, type].hash
     end
 
     # Builds the object from hash
@@ -398,5 +413,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end
