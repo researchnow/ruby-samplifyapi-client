@@ -25,8 +25,14 @@ module SamplifyAPIClient
     # Security Key 2
     attr_accessor :security_key2
 
-    # Security Level: NONE, BASIC, MEDIUM, or HIGH
+    # Security Level: NONE, BASIC, MEDIUM, HIGH, or SIGNED_URL
     attr_accessor :security_level
+
+    # Signed URL Security Key ID
+    attr_accessor :signed_url_security_key_id
+
+    # Signed URL Security Secret Key
+    attr_accessor :signed_url_security_secret_key
 
     attr_accessor :tests
 
@@ -60,6 +66,8 @@ module SamplifyAPIClient
         :'security_key1' => :'securityKey1',
         :'security_key2' => :'securityKey2',
         :'security_level' => :'securityLevel',
+        :'signed_url_security_key_id' => :'signedURLSecurityKeyID',
+        :'signed_url_security_secret_key' => :'signedURLSecuritySecretKey',
         :'tests' => :'tests'
       }
     end
@@ -72,6 +80,8 @@ module SamplifyAPIClient
         :'security_key1' => :'String',
         :'security_key2' => :'String',
         :'security_level' => :'String',
+        :'signed_url_security_key_id' => :'String',
+        :'signed_url_security_secret_key' => :'String',
         :'tests' => :'Array<SurveyTest>'
       }
     end
@@ -102,6 +112,14 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'securityLevel')
         self.security_level = attributes[:'securityLevel']
+      end
+
+      if attributes.has_key?(:'signedURLSecurityKeyID')
+        self.signed_url_security_key_id = attributes[:'signedURLSecurityKeyID']
+      end
+
+      if attributes.has_key?(:'signedURLSecuritySecretKey')
+        self.signed_url_security_secret_key = attributes[:'signedURLSecuritySecretKey']
       end
 
       if attributes.has_key?(:'tests')
@@ -136,7 +154,7 @@ module SamplifyAPIClient
       return false if @end_links.nil?
       return false if @entry_link.nil?
       return false if @security_level.nil?
-      security_level_validator = EnumAttributeValidator.new('String', ['NONE', 'BASIC', 'MEDIUM', 'HIGH'])
+      security_level_validator = EnumAttributeValidator.new('String', ['NONE', 'BASIC', 'MEDIUM', 'HIGH', 'SIGNED_URL'])
       return false unless security_level_validator.valid?(@security_level)
       true
     end
@@ -144,7 +162,7 @@ module SamplifyAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] security_level Object to be assigned
     def security_level=(security_level)
-      validator = EnumAttributeValidator.new('String', ['NONE', 'BASIC', 'MEDIUM', 'HIGH'])
+      validator = EnumAttributeValidator.new('String', ['NONE', 'BASIC', 'MEDIUM', 'HIGH', 'SIGNED_URL'])
       unless validator.valid?(security_level)
         fail ArgumentError, 'invalid value for "security_level", must be one of #{validator.allowable_values}.'
       end
@@ -161,6 +179,8 @@ module SamplifyAPIClient
           security_key1 == o.security_key1 &&
           security_key2 == o.security_key2 &&
           security_level == o.security_level &&
+          signed_url_security_key_id == o.signed_url_security_key_id &&
+          signed_url_security_secret_key == o.signed_url_security_secret_key &&
           tests == o.tests
     end
 
@@ -173,7 +193,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [end_links, entry_link, security_key1, security_key2, security_level, tests].hash
+      [end_links, entry_link, security_key1, security_key2, security_level, signed_url_security_key_id, signed_url_security_secret_key, tests].hash
     end
 
     # Builds the object from hash
@@ -279,5 +299,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

@@ -20,11 +20,13 @@ module SamplifyAPIClient
     # Duration of the project in days.
     attr_accessor :days_in_field
 
-    # Delivery type: SLOW, BALANCED, FAST, BURST OR UNLIMITED.
+    # Delivery type: SLOW, BALANCED, FAST, or BURST.
     attr_accessor :delivery_type
 
     # Sales Order Detail ID of the line item.
     attr_accessor :dynata_line_item_reference_id
+
+    attr_accessor :field_schedule
 
     # Expected incidence of the survey
     attr_accessor :indicative_incidence
@@ -49,6 +51,9 @@ module SamplifyAPIClient
     # SurveyTestURL Params of the line item.
     attr_accessor :survey_test_url_params
 
+    # Survey testing notes
+    attr_accessor :survey_testing_notes
+
     # Entry link for the user.
     attr_accessor :survey_url
 
@@ -61,28 +66,6 @@ module SamplifyAPIClient
     # A title for the line item
     attr_accessor :title
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -90,6 +73,7 @@ module SamplifyAPIClient
         :'days_in_field' => :'daysInField',
         :'delivery_type' => :'deliveryType',
         :'dynata_line_item_reference_id' => :'dynataLineItemReferenceId',
+        :'field_schedule' => :'fieldSchedule',
         :'indicative_incidence' => :'indicativeIncidence',
         :'language_iso_code' => :'languageISOCode',
         :'length_of_interview' => :'lengthOfInterview',
@@ -98,6 +82,7 @@ module SamplifyAPIClient
         :'sources' => :'sources',
         :'survey_test_url' => :'surveyTestURL',
         :'survey_test_url_params' => :'surveyTestURLParams',
+        :'survey_testing_notes' => :'surveyTestingNotes',
         :'survey_url' => :'surveyURL',
         :'survey_url_params' => :'surveyURLParams',
         :'targets' => :'targets',
@@ -112,6 +97,7 @@ module SamplifyAPIClient
         :'days_in_field' => :'Integer',
         :'delivery_type' => :'String',
         :'dynata_line_item_reference_id' => :'String',
+        :'field_schedule' => :'FieldSchedule',
         :'indicative_incidence' => :'Float',
         :'language_iso_code' => :'String',
         :'length_of_interview' => :'Integer',
@@ -120,6 +106,7 @@ module SamplifyAPIClient
         :'sources' => :'Array<LineItemSource>',
         :'survey_test_url' => :'String',
         :'survey_test_url_params' => :'Array<URLParam>',
+        :'survey_testing_notes' => :'String',
         :'survey_url' => :'String',
         :'survey_url_params' => :'Array<URLParam>',
         :'targets' => :'Array<Target>',
@@ -149,6 +136,10 @@ module SamplifyAPIClient
 
       if attributes.has_key?(:'dynataLineItemReferenceId')
         self.dynata_line_item_reference_id = attributes[:'dynataLineItemReferenceId']
+      end
+
+      if attributes.has_key?(:'fieldSchedule')
+        self.field_schedule = attributes[:'fieldSchedule']
       end
 
       if attributes.has_key?(:'indicativeIncidence')
@@ -187,6 +178,10 @@ module SamplifyAPIClient
         end
       end
 
+      if attributes.has_key?(:'surveyTestingNotes')
+        self.survey_testing_notes = attributes[:'surveyTestingNotes']
+      end
+
       if attributes.has_key?(:'surveyURL')
         self.survey_url = attributes[:'surveyURL']
       end
@@ -218,19 +213,7 @@ module SamplifyAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      delivery_type_validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
-      return false unless delivery_type_validator.valid?(@delivery_type)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] delivery_type Object to be assigned
-    def delivery_type=(delivery_type)
-      validator = EnumAttributeValidator.new('String', ['SLOW', 'BALANCED', 'FAST', 'BURST', 'UNLIMITED'])
-      unless validator.valid?(delivery_type)
-        fail ArgumentError, 'invalid value for "delivery_type", must be one of #{validator.allowable_values}.'
-      end
-      @delivery_type = delivery_type
     end
 
     # Checks equality by comparing each attribute.
@@ -242,6 +225,7 @@ module SamplifyAPIClient
           days_in_field == o.days_in_field &&
           delivery_type == o.delivery_type &&
           dynata_line_item_reference_id == o.dynata_line_item_reference_id &&
+          field_schedule == o.field_schedule &&
           indicative_incidence == o.indicative_incidence &&
           language_iso_code == o.language_iso_code &&
           length_of_interview == o.length_of_interview &&
@@ -250,6 +234,7 @@ module SamplifyAPIClient
           sources == o.sources &&
           survey_test_url == o.survey_test_url &&
           survey_test_url_params == o.survey_test_url_params &&
+          survey_testing_notes == o.survey_testing_notes &&
           survey_url == o.survey_url &&
           survey_url_params == o.survey_url_params &&
           targets == o.targets &&
@@ -265,7 +250,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_iso_code, days_in_field, delivery_type, dynata_line_item_reference_id, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, sources, survey_test_url, survey_test_url_params, survey_url, survey_url_params, targets, title].hash
+      [country_iso_code, days_in_field, delivery_type, dynata_line_item_reference_id, field_schedule, indicative_incidence, language_iso_code, length_of_interview, quota_plan, required_completes, sources, survey_test_url, survey_test_url_params, survey_testing_notes, survey_url, survey_url_params, targets, title].hash
     end
 
     # Builds the object from hash
@@ -371,5 +356,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

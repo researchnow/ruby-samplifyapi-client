@@ -125,6 +125,20 @@ describe 'LineItemsApi' do
     end
   end
 
+  # unit tests for line_items_set_quota_cell_status
+  # setQuotaCellStatus lineItems
+  # @param action 
+  # @param ext_line_item_id 
+  # @param ext_project_id 
+  # @param quota_cell_id 
+  # @param [Hash] opts the optional parameters
+  # @return [QuotaCellStatus]
+  describe 'line_items_set_quota_cell_status test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for line_items_update
   # update lineItems
   # @param ext_line_item_id 

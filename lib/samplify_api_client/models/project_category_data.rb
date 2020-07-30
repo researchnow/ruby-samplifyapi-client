@@ -14,12 +14,20 @@ require 'date'
 
 module SamplifyAPIClient
   class ProjectCategoryData
+    # List of survey requirements
+    attr_accessor :study_requirements
+
+    # List of survey types
+    attr_accessor :study_type
+
     # List of survey topics
     attr_accessor :survey_topic
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'study_requirements' => :'studyRequirements',
+        :'study_type' => :'studyType',
         :'survey_topic' => :'surveyTopic'
       }
     end
@@ -27,6 +35,8 @@ module SamplifyAPIClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'study_requirements' => :'Array<String>',
+        :'study_type' => :'Array<String>',
         :'survey_topic' => :'Array<String>'
       }
     end
@@ -38,6 +48,18 @@ module SamplifyAPIClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'studyRequirements')
+        if (value = attributes[:'studyRequirements']).is_a?(Array)
+          self.study_requirements = value
+        end
+      end
+
+      if attributes.has_key?(:'studyType')
+        if (value = attributes[:'studyType']).is_a?(Array)
+          self.study_type = value
+        end
+      end
 
       if attributes.has_key?(:'surveyTopic')
         if (value = attributes[:'surveyTopic']).is_a?(Array)
@@ -69,6 +91,8 @@ module SamplifyAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          study_requirements == o.study_requirements &&
+          study_type == o.study_type &&
           survey_topic == o.survey_topic
     end
 
@@ -81,7 +105,7 @@ module SamplifyAPIClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [survey_topic].hash
+      [study_requirements, study_type, survey_topic].hash
     end
 
     # Builds the object from hash
@@ -187,5 +211,6 @@ module SamplifyAPIClient
         value
       end
     end
+
   end
 end

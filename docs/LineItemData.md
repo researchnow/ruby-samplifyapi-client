@@ -4,10 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **country_iso_code** | **String** | ISO country code | 
-**days_in_field** | **Integer** | Duration of the project in days. | 
+**days_in_field** | **Integer** | Duration of the project in days. | [optional] 
 **delivery_type** | **String** | Delivery type: SLOW, BALANCED,FAST or BURST. | [optional] 
 **dynata_line_item_reference_id** | **String** | Sales Order Detail Reference ID | [optional] 
 **ext_line_item_id** | **String** | Unique line item Id | 
+**field_schedule** | [**FieldSchedule**](FieldSchedule.md) |  | [optional] 
 **indicative_incidence** | **Float** | Expected incidence of the survey | 
 **language_iso_code** | **String** | ISO language code | 
 **length_of_interview** | **Integer** | expected duration of the survey in minutes | 

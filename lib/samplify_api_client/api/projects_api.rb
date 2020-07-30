@@ -577,6 +577,8 @@ module SamplifyAPIClient
     # list projects
     # @param [Hash] opts the optional parameters
     # @option opts [String] :billing_date return projects with billing date matching the given date range
+    # @option opts [String] :billing_id return projects with billing ID matching the given billing ID
+    # @option opts [String] :billing_type return projects with billing type matching the given billing type
     # @option opts [String] :created_at return projects with createdAt start date
     # @option opts [String] :ext_project_id Only return project with the given external project id
     # @option opts [String] :job_number Only return projects with the given job number
@@ -595,6 +597,8 @@ module SamplifyAPIClient
     # list projects
     # @param [Hash] opts the optional parameters
     # @option opts [String] :billing_date return projects with billing date matching the given date range
+    # @option opts [String] :billing_id return projects with billing ID matching the given billing ID
+    # @option opts [String] :billing_type return projects with billing type matching the given billing type
     # @option opts [String] :created_at return projects with createdAt start date
     # @option opts [String] :ext_project_id Only return project with the given external project id
     # @option opts [String] :job_number Only return projects with the given job number
@@ -630,6 +634,8 @@ module SamplifyAPIClient
       # query parameters
       query_params = {}
       query_params[:'billingDate'] = opts[:'billing_date'] if !opts[:'billing_date'].nil?
+      query_params[:'billingID'] = opts[:'billing_id'] if !opts[:'billing_id'].nil?
+      query_params[:'billingType'] = opts[:'billing_type'] if !opts[:'billing_type'].nil?
       query_params[:'createdAt'] = opts[:'created_at'] if !opts[:'created_at'].nil?
       query_params[:'extProjectId'] = opts[:'ext_project_id'] if !opts[:'ext_project_id'].nil?
       query_params[:'jobNumber'] = opts[:'job_number'] if !opts[:'job_number'].nil?

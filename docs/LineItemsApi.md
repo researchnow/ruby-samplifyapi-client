@@ -1,6 +1,6 @@
 # SamplifyAPIClient::LineItemsApi
 
-All URIs are relative to *https://api.dev.pe.dynata.com*
+All URIs are relative to *https://api.uat.pe.dynata.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**line_items_launch**](LineItemsApi.md#line_items_launch) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/launch | launch lineItems
 [**line_items_list_line_items**](LineItemsApi.md#line_items_list_line_items) | **GET** /sample/v1/projects/{extProjectId}/lineItems | listLineItems lineItems
 [**line_items_pause**](LineItemsApi.md#line_items_pause) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/pause | pause lineItems
+[**line_items_set_quota_cell_status**](LineItemsApi.md#line_items_set_quota_cell_status) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId}/quotaCells/{quotaCellId}/{action} | setQuotaCellStatus lineItems
 [**line_items_update**](LineItemsApi.md#line_items_update) | **POST** /sample/v1/projects/{extProjectId}/lineItems/{extLineItemId} | update lineItems
 
 
@@ -415,6 +416,67 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
  - **Accept**: application/vnd.createlineitem+json
+
+
+
+# **line_items_set_quota_cell_status**
+> QuotaCellStatus line_items_set_quota_cell_status(action, ext_line_item_id, ext_project_id, quota_cell_id)
+
+setQuotaCellStatus lineItems
+
+### Example
+```ruby
+# load the gem
+require 'samplify_api_client'
+# setup authorization
+SamplifyAPIClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = SamplifyAPIClient::LineItemsApi.new
+
+action = 'action_example' # String | 
+
+ext_line_item_id = 'ext_line_item_id_example' # String | 
+
+ext_project_id = 'ext_project_id_example' # String | 
+
+quota_cell_id = 'quota_cell_id_example' # String | 
+
+
+begin
+  #setQuotaCellStatus lineItems
+  result = api_instance.line_items_set_quota_cell_status(action, ext_line_item_id, ext_project_id, quota_cell_id)
+  p result
+rescue SamplifyAPIClient::ApiError => e
+  puts "Exception when calling LineItemsApi->line_items_set_quota_cell_status: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | **String**|  | 
+ **ext_line_item_id** | **String**|  | 
+ **ext_project_id** | **String**|  | 
+ **quota_cell_id** | **String**|  | 
+
+### Return type
+
+[**QuotaCellStatus**](QuotaCellStatus.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml, application/gob, application/x-gob
+ - **Accept**: application/vnd.quotacellstatus+json
 
 
 

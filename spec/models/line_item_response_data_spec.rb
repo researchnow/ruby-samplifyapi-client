@@ -53,10 +53,6 @@ describe 'LineItemResponseData' do
   describe 'test attribute "delivery_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["SLOW", "BALANCED", "FAST", "BURST"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.delivery_type = value }.not_to raise_error
-      # end
     end
   end
 
@@ -73,6 +69,12 @@ describe 'LineItemResponseData' do
   end
 
   describe 'test attribute "ext_line_item_id"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "field_schedule"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

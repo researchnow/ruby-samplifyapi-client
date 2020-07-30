@@ -74,6 +74,12 @@ describe 'AttributeData' do
     end
   end
 
+  describe 'test attribute "is_allowed_in_survey_appends"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "localized_text"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

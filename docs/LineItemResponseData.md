@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **dynata_line_item_reference_id** | **String** | Sales Order Detail ID of the line item. | [optional] 
 **end_links** | [**EndLinks**](EndLinks.md) |  | [optional] 
 **ext_line_item_id** | **String** | Unique line item Id | [optional] 
+**field_schedule** | [**FieldSchedule**](FieldSchedule.md) |  | [optional] 
 **indicative_incidence** | **Float** | Expected incidence of the survey | [optional] 
 **language_iso_code** | **String** | ISO language code | [optional] 
 **launched_at** | **String** | launched time. | [optional] 

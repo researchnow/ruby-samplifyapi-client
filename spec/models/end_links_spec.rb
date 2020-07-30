@@ -65,10 +65,22 @@ describe 'EndLinks' do
   describe 'test attribute "security_level"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "BASIC", "MEDIUM", "HIGH"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "BASIC", "MEDIUM", "HIGH", "SIGNED_URL"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.security_level = value }.not_to raise_error
       # end
+    end
+  end
+
+  describe 'test attribute "signed_url_security_key_id"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "signed_url_security_secret_key"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

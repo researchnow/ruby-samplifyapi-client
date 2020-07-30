@@ -32,6 +32,18 @@ describe 'ProjectCategoryData' do
       expect(@instance).to be_instance_of(SamplifyAPIClient::ProjectCategoryData)
     end
   end
+  describe 'test attribute "study_requirements"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "study_type"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "survey_topic"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
