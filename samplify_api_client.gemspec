@@ -16,7 +16,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "samplify_api_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "samplify_api_client"
+  s.name        = "ruby-samplifyapi-client"
   s.version     = SamplifyAPIClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Saadullah Saeed"]
