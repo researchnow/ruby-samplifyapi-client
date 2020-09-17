@@ -16,7 +16,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "samplify_api_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ruby-samplifyapi-client"
+  s.name        = "samplify_api_client"
   s.version     = SamplifyAPIClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Saadullah Saeed"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.description = "This is an API Client for the Dynata Samplify API"
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 1.9"
+  s.metadata = { "github_repo" => "ssh://github.com/researchnow/ruby-samplifyapi-client" }
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
   s.add_runtime_dependency 'rest-client', '~> 2.0', '>= 2.0'
