@@ -43,4 +43,5 @@ Gem::Specification.new do |s|
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]
+  s.metadata = { "github_repo" => "ssh://github.com/researchnow/ruby-samplifyapi-client" }
 end
